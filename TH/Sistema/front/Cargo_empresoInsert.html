@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<!--              -------Creado por-------               -->
+<!--             \(°u° )/ Anarchy \( °u°)/               -->
+<!--              ------------------------               -->
+
+<!--//    En esto paso mis sábados en la noche ( ¬.¬)  \\                  -->
+     <!-- Sweet Alert -->
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+      <div>
+          <div class="panel panel-default">
+              <div align=center class="panel-heading"><h3 class="panel-title">Registrar cargo_empreso</h3></div>
+              <div align=center class="panel-body">
+                  <form role="form" id="Cargo_empresoInsert">
+                   
+                      <div class="form-group">
+                          <label for="Inputnom_cargo">nom_cargo</label>
+                          <input type="text" name="nom_cargo" class="form-control" id="Inputnom_cargo" placeholder="nom_cargo">
+                       </div>
+       
+                                <div class="form-group">
+                <label for="Inputarea_empresa_idarea_emp">area_empresa_idarea_emp</label>
+                 <input type="text" name="area_empresa_idarea_emp" class="form-control" id="Inputarea_empresa_idarea_emp" placeholder="nom_cargo">
+                      
+                
+             </div>
+      <button type="button" class="btn btn-primary" onclick="registrarCargo()">Registrar</button> 
+                      
+                   </form>
+               </div><!-- panel-body -->
+          </div> <!-- panel -->
+      </div>
+
+           <!-- Sweet alert -->
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+                <script>
+                                    $(document).ready(function () {
+                                                   
+                             var mySelect;
+      
+         
+            //    var a=''+id;
+        mySelect=document.getElementById("Inputarea_empresa_idarea_emp1").value;
+        document.getElementById("Inputarea_empresa_idarea_emp").value=mySelect;
+    
+                                      
+                                    });
+                                    
+         
+                            
+                                    
+                                    
+        </script>
+        
+         <script>
+     function registrarCargo(){
+      
+         
+        var url1 = "../back/controller/cargo_empreso/Cargo_empresoInsert.php";
+        $.ajax({                        
+           type: "POST",                 
+           url: url1,                     
+           data: $("#Cargo_empresoInsert").serialize(), 
+                 
+           success: function(data) 
+         
+           {
+               if(data=='true'){
+                 aceptaraREA();
+               }
+                          
+           }
+       });
+   
+};
+
+     function aceptaraREA(){
+    // $('#myModal2').modal('hide');
+       swal({
+                        title: "Registro",
+                        text: "Registro Exitoso!",
+                        type: "success",
+                       // showCancelButton: true,
+                        confirmButtonColor: "#1ab394",
+                        confirmButtonText: "Ok",
+                       // cancelButtonText: "No, cancel plx!",
+                      //   closeOnConfirm: false,
+                        closeOnCancel: false },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                          // alert('mySelect2'+mySelect2);
+                        
+                               cargo_Listar_2(mySelect);
+                           // swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        } 
+                        else {
+                            swal("Cancelled", "Your imaginary file is safe :)", "error");
+                        }
+                    });
+   
+};
+</script>
+<!-- That´s all folks! -->
+</html>

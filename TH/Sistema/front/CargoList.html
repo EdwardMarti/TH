@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<!--              -------Creado por-------               -->
+<!--             \(°u° )/ Anarchy \( °u°)/               -->
+<!--              ------------------------               -->
+
+<!--//    ¡Oh! (°o° ) ¡es Fredy Arciniegas, el intelectualoide millonario!  \\                  -->
+
+    <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+
+  <div class="panel panel-default">
+                  <div align=center class="panel-heading">
+                      <h1><b>Listar Cargos</b></h1></div>
+                  <div align=center class="panel-body">
+                 <!--     <div class="text-left m-t-md"> -->
+                          <div class="ibox-content">
+                            
+                         <div class="row">
+                             <div class="col-lg-12">
+                               
+               <div class="form-group">
+                <label for="InputidEmpresa_p">empresa </label>
+                <select name="idEmpresa_p" class="form-control" id="InputidEmpresa_p" onchange="ListarSucursales(this.value);">
+                                
+                </select> 
+     <br>
+ </div>                                 
+                          
+                                
+                                   <div class="form-group">
+                <label for="Inputempresa_idempresa">Sucursal</label>
+                <select name="empresa_idempresa" class="form-control" id="Inputempresa_idempresa" onchange="cargarAreas(this.value);">
+                    <option>SELECCIONE</option>
+                </select>
+             </div>
+                                <div class="form-group">
+                <label for="Inputarea_empresa_idarea_emp">area</label>
+                <select name="area_empresa_idarea_emp1" class="form-control" id="Inputarea_empresa_idarea_emp1" onchange="listarCargos(this.value);">
+                    <option>SELECCIONE</option>
+                </select>
+             </div>
+                              
+                                 <div id="mostrarcontenido2">
+                                     
+                                 </div>          
+                                 
+                                 
+
+
+                             
+                                <div class="hr-line-dashed"></div>
+                             
+                                  
+                               
+                         
+                             </div>
+                             </div>
+                        
+                      
+                            
+                        </div>
+                    <!--       </div>  --->  
+                    </div>
+                </div>
+
+
+
+    
+               <script>
+        
+        
+
+        
+        
+        $(document).ready(function () { //no tocar //
+           $.get('../back/controller/empresa_p/Empresa_pList.php',function(depa){
+          var mySelect=document.getElementById("InputidEmpresa_p");
+         removeAllChildren(mySelect);
+             mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idEmpresa_p,depa[i].Empresa_p_nombre));
+            }  
+          
+        });
+      
+      
+                                    });
+        </script>
+    
+    
+        
+        
+             <script>
+   function ListarSucursales(empresa){ 
+         
+        $.get('../back/controller/empresa/EmpresaList_sucursal.php',{'empresa':empresa},function(depa){
+          var mySelect=document.getElementById("Inputempresa_idempresa");
+          removeAllChildren(mySelect);
+            mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idempresa,depa[i].nombre_empresa));
+            }  
+          
+        });
+      
+      }
+      
+   function cargarAreas(empresa){      
+        $.get('../back/controller/area_empresa/Area_empresaList.php',{'empresa':empresa},function(depa){
+          var mySelect=document.getElementById("Inputarea_empresa_idarea_emp1");
+          removeAllChildren(mySelect);
+               mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);         
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idarea_emp,depa[i].nom_area));
+            }  
+          
+        });
+      }
+
+        </script>
+    <script src="js/funciones.js"></script>
+        <script>
+                 function listarCargos(empresa2){
+                    // console.log(empresa2);
+                   cargo_Listar_2(empresa2);
+               //  preArea_empresaList('mostrarcontenido2',empresa) // no me cargo exportar
+                     
+                 }  
+    
+    
+    
+        </script>
+  
+
+<!-- That´s all folks! -->
+</html>

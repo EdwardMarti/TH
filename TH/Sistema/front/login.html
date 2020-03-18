@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CVS</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+
+                 <div align=center >
+                
+                     <h1 class="logo-name"><img src="img/logo.png" width="250px" height="200px" > </h1>
+                </div>
+
+            </div>
+            <h2><b>Bienvenido</b></h2>
+           <br>
+           <form role="form" method="post" action="../back/controller/usuario/UsuarioLogin.php">
+               
+                    <div class="form-group">
+                        <div id="combocargo"  > 
+                    
+                             </div>
+                </div>
+                 <div class="form-group">
+                    <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Password" required="">
+                </div>
+  <div class="form-group">
+                    <button type="submit" class="btn btn-primary block full-width m-b">Iniciar Sesion</button>
+                </div> 
+               <p class="text-muted text-center"><small><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>¿No tiene una cuenta?</b></font></font></small></p>
+                <a class="btn btn-sm btn-white btn-block" href="usuario-registrar.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Crea una cuenta</font></font></a>
+                <br>  
+              
+              
+               
+            </form>
+          
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    
+    
+    
+       <script type="text/javascript">
+           
+           
+          $(document).ready(function(){  
+              
+            $.post( "../back/controller/usuario/usuario_cargo_list_combo.php").done(function(data){
+              $('#combocargo').html(data);
+            });             
+          });             
+          
+
+
+       </script> 
+       
+       
+
+    
+</body>
+
+    
+
+</html>

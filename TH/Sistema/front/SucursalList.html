@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+    
+
+<!DOCTYPE html>
+
+<!--              -------Creado por-------               -->
+<!--             \(°u° )/ Anarchy \( °u°)/               -->
+<!--              ------------------------               -->
+
+<!--//    ¡Oh! (°o° ) ¡es Fredy Arciniegas, el intelectualoide millonario!  \\                  -->
+
+    <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+
+  <div class="panel panel-default">
+                  <div align=center class="panel-heading">
+                      <h1><b>Listar Sucursales</b></h1></div>
+                  <div align=center class="panel-body">
+                 <!--     <div class="text-left m-t-md"> -->
+                          <div class="ibox-content">
+                            
+                         <div class="row">
+                             <div class="col-lg-12">
+                               
+                              
+                                
+<div class="form-group">
+                <label for="InputidEmpresa_p">Sucursales </label>
+              
+                <select name="idEmpresa_p" class="form-control" id="InputidEmpresa_p" onchange="ListarEmpresas(this.value);">
+                                
+                </select> 
+     <br>
+ </div>
+                              
+                                 <div id="mostrarcontenido2">
+                                     
+                                 </div>          
+                                 
+                                 
+
+
+                             
+                                <div class="hr-line-dashed"></div>
+                             
+                                  
+                               
+                         
+                             </div>
+                             </div>
+                        
+                      
+                            
+                        </div>
+                    <!--       </div>  --->  
+                    </div>
+                </div>
+
+
+
+           <script>
+                                    $(document).ready(function () { //no tocar //
+           $.get('../back/controller/empresa_p/Empresa_pList.php',function(depa){
+          var mySelect=document.getElementById("InputidEmpresa_p");
+         removeAllChildren(mySelect);
+             mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idEmpresa_p,depa[i].Empresa_p_nombre));
+            }  
+          
+        });
+        
+       
+      
+                                    });
+        </script>
+        
+        
+    <script src="js/funciones.js"></script>
+        <script>
+                 function ListarEmpresas(empresa){
+                   
+                     
+                   sucursal_emp_Listar_2(empresa);
+               //  preArea_empresaList('mostrarcontenido2',empresa) // no me cargo exportar
+                     
+                 }  
+    
+    
+    
+        </script>
+  
+
+ <script src="js/plugins/dataTables/datatables.min.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap4.min.js"></script>
+
+
+<!-- That´s all folks! -->
+
+    
+
+ 
+
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function(){
+            $('.dataTables-example').DataTable({
+                pageLength: 25,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
+
+            });
+
+        });
+
+    </script>
+
+
+    <!-- That´s all folks! -->
+</html>

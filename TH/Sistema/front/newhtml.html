@@ -1,0 +1,477 @@
+<div class="tabs-container" style="color: black">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li><a class="nav-link active" data-toggle="tab" href="#tab-1">Datos Personales</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-2">This is second tab</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-3">This is second tab</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-4">This is second tab</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-5">This is second tab</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-6">This is second tab</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-7">This is second tab</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-8">This is second tab</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-9">This is second tab</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-10">This is second tab</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" id="tab-1" class="tab-pane active">
+                                <div class="panel-body">
+  <div class="text-left m-t-md">
+              
+                    <form role="form" id="PersonaInsert">
+                        <div class="row">
+                            <div class="col-lg-4">
+                            <div class="form-group">
+                                    <label for="Inputcedula">cedula</label>
+                                    <input type="text" name="cedula" class="form-control" id="Inputcedula" placeholder="cedula" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Inputnombres">nombres</label>
+                                    <input type="text" name="nombres" class="form-control" id="Inputnombres" placeholder="nombres">
+                                </div> 
+                                <div class="form-group">
+                                    <label for="InputfechaNacimiento">fechaNacimiento</label>
+                                    <input type="date" name="fechaNacimiento" class="form-control" id="InputfechaNacimiento" placeholder="fechaNacimiento">
+                                </div>
+                                   <div class="form-group">
+                                    <label for="Inputgrupo_sanguineo">grupo_sanguineo</label>
+                                    <select name="grupo_sanguineo" class="form-control" id="Inputgrupo_sanguineo">
+
+                                    </select> 
+                                </div>
+                                   <div class="form-group">
+                                    <label for="Inputnivel_vigilancia_id">nivel_vigilancia_id</label>
+                                    <select name="nivel_vigilancia_id" class="form-control" id="Inputnivel_vigilancia_id">
+
+                                    </select>                              
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-lg-4">
+                            <div class="form-group">
+                                    <label for="Inputnacionalidad">nacionalidad</label>                            
+                                    <select name="nacionalidad" class="form-control" id="Inputnacionalidad">
+                                        <option value="1">COL</option>
+                                        <option value="2">VEN</option>
+                                        <option value="3">PASAPORTE</option>
+                                    </select>
+                                </div>
+                                   <div class="form-group">
+                                    <label for="Inputapellidos">apellidos</label>
+                                    <input type="text" name="apellidos" class="form-control" id="Inputapellidos" placeholder="apellidos">
+                                </div>
+                                
+                                  <div class="form-group">
+                                    <label for="Inputlugar_nacimiento">lugar_nacimiento</label>
+                                    <input type="text" name="lugar_nacimiento" class="form-control" id="Inputlugar_nacimiento" placeholder="lugar_nacimiento"  onclick="cargarDepartamentos('Inputlugar_nacimiento');">
+                                </div>
+                                   <div class="form-group">
+                                    <label for="Inputestado_civil">estado_civil</label>
+                                    <select name="estado_civil" class="form-control" id="Inputestado_civil">
+
+                                    </select> 
+                                </div>
+                                   <div class="form-group">
+                                    <label for="Inputtipo_vigilancia_id">tipo_vigilancia_id</label>
+                                    <select name="tipo_vigilancia_id" class="form-control" id="Inputtipo_vigilancia_id">                
+                                    </select>   
+                                                                
+                                </div>
+                            </div>
+
+                            
+                            
+                            
+                            <div class="col-lg-4">
+                              <div class="form-group">
+                                    <label for="Inputcedula_lugar_expedicion">cedula_lugar_expedicion</label>
+                                    <input type="text" name="cedula_lugar_expedicion" class="form-control" id="Inputcedula_lugar_expedicion" placeholder="cedula_lugar_expedicion" 
+                                           onclick="cargarDepartamentos('Inputcedula_lugar_expedicion');">
+                                </div>
+                                                                <div class="form-group">
+                                    <label for="Inputsexo">sexo</label>
+                                    <select name="sexo" class="form-control" id="Inputsexo">
+
+                                    </select>                              
+                                </div>
+                                  <div class="form-group">
+                                    <label for="Inputlugar_nacimiento">Edad</label>
+                                    <input type="text" name="lugar_nacimiento" class="form-control" id="Inputlugar_nacimiento" placeholder="lugar_nacimiento"  onclick="cargarDepartamentos('Inputlugar_nacimiento');">
+                                </div>
+                                 <div class="form-group">
+                                    <label for="Inputcorreo">correo</label>
+                                    <input type="text" name="correo" class="form-control" id="Inputcorreo" placeholder="correo">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+               
+            </div>
+                               </div>
+                            </div>
+                            <div role="tabpanel" id="tab-2" class="tab-pane">
+                                <div class="panel-body"> <div class="text-left m-t-md">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <div class="text-right m-t-md">
+                            <button type="button" class="btn btn-w-m btn-primary" onclick="agregarFamiliar();">Agregar</button>
+                             <button type="button" class="btn btn-w-m btn-primary" onclick="getFamiliares();">finnn</button>
+
+                        </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="ibox ">                
+                    <div class="ibox-content">
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre y apellido</th>
+                                    <th># Celular</th>
+                                    <th>Parentesco</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpoFamiliar">
+                           </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                                    
+                                    </div>
+                            </div>
+                            
+                            <div role="tabpanel" id="tab-3" class="tab-pane">
+                                <div class="panel-body">
+                              
+  <div class="text-left m-t-md">
+                <form role="form" id="CelularInsert">
+                      <div class="form-group">
+                          <input type="hidden" name="id" class="form-control" id="Inputid" placeholder="id" required>
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputnumero">numero (por favor separelos por ; )</label>
+                          <input type="text" name="numero" class="form-control" id="Inputnumero" placeholder="numero">
+                       </div>
+                </form>
+                <form role="form" id="DomicilioInsert">
+                      <div class="form-group">
+                          <input type="hidden" name="id" class="form-control" id="Inputid" placeholder="id" required>
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputdireccion">direccion</label>
+                          <input type="text" name="direccion" class="form-control" id="Inputdireccion" placeholder="direccion">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputbarrio">barrio</label>
+                          <input type="text" name="barrio" class="form-control" id="Inputbarrio" placeholder="barrio" onclick="cargarModalBarrios('Inputbarrio');">
+                       </div>
+                      <div class="form-group">  
+                          <input type="hidden" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="persona_id">
+                       </div>                       
+                    </form> 
+            </div>
+                                </div>
+                            </div>
+                            
+                            <div role="tabpanel" id="tab-3" class="tab-pane">
+                                <div class="panel-body">
+                              
+  <div class="text-left m-t-md">
+                <form role="form" id="CelularInsert">
+                      <div class="form-group">
+                          <input type="hidden" name="id" class="form-control" id="Inputid" placeholder="id" required>
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputnumero">numero (por favor separelos por ; )</label>
+                          <input type="text" name="numero" class="form-control" id="Inputnumero" placeholder="numero">
+                       </div>
+                </form>
+                <form role="form" id="DomicilioInsert">
+                      <div class="form-group">
+                          <input type="hidden" name="id" class="form-control" id="Inputid" placeholder="id" required>
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputdireccion">direccion</label>
+                          <input type="text" name="direccion" class="form-control" id="Inputdireccion" placeholder="direccion">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputbarrio">barrio</label>
+                          <input type="text" name="barrio" class="form-control" id="Inputbarrio" placeholder="barrio" onclick="cargarModalBarrios('Inputbarrio');">
+                       </div>
+                      <div class="form-group">  
+                          <input type="hidden" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="persona_id">
+                       </div>                       
+                    </form> 
+            </div>
+                                </div>
+                            </div>
+                            
+                            <!------------inicio nuvo tab ------->
+                            
+                            <div role="tabpanel" id="tab-4" class="tab-pane">
+                                <div class="panel-body">
+                                 <div class="text-left m-t-md">
+                <form role="form" id="Fechas_particularesInsert">
+                      <div class="form-group">
+                          <label for="Inputestudio_seguridad">estudio_seguridad</label>
+                          <input type="date" name="estudio_seguridad" class="form-control" id="Inputestudio_seguridad" placeholder="estudio_seguridad">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputexamen_medico">examen_medico</label>
+                          <input type="date" name="examen_medico" class="form-control" id="Inputexamen_medico" placeholder="examen_medico">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputprueba_psicotecnica">prueba_psicotecnica</label>
+                          <input type="date" name="prueba_psicotecnica" class="form-control" id="Inputprueba_psicotecnica" placeholder="prueba_psicotecnica">
+                       </div>
+                      <div class="form-group">
+                          <input type="hidden" name="id" class="form-control" id="Inputid" placeholder="id" required>
+                       </div>
+                      <div class="form-group">
+                          <input type="hidden" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="persona_id">
+                       </div>                  
+                  </form> 
+
+            </div>
+  
+                                </div>
+                            </div>
+                            
+                            
+                            <!------------inicio nuvo tab estudios------->
+                            
+                            <div role="tabpanel" id="tab-5" class="tab-pane">
+                                <div class="panel-body">
+                                  <div class="text-left m-t-md">
+                <form role="form" id="EstudioInsert">
+                      <div class="form-group">
+                          <label for="Inputnivel_academico">nivel_academico</label>
+                          <select name="nivel_academico" class="form-control" id="Inputnivel_academico">
+                            
+                          </select>
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputnivel_vigilancia">nivel_vigilancia</label>
+                          <select name="nivel_vigilancia" class="form-control" id="Inputnivel_vigilancia">
+                            
+                          </select>
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputfecha_curso">fecha_curso</label>
+                          <input type="date" name="fecha_curso" class="form-control" id="Inputfecha_curso" placeholder="fecha_curso">
+                       </div>
+                      <div class="form-group">
+                          <input type="hidden" name="id" class="form-control" id="Inputid" placeholder="id" required>
+                       </div>
+                      <div class="form-group">
+                          <input type="hidden" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="persona_id">
+                       </div>
+                  </form> 
+            </div>
+  
+                                </div>
+                            </div>
+                            
+                            
+                            <!------------inicio nuvo tab salud pension Banco ------->
+                            
+                            <div role="tabpanel" id="tab-6" class="tab-pane">
+                                <div class="panel-body">
+                                 <div class="text-left m-t-md">
+                 <form role="form" id="Salud_pensionInsert">
+                      <div class="form-group">
+                          <input type="hidden" name="id" class="form-control" id="Inputid" placeholder="id" required>
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputsalud">salud</label>
+                          <select name="salud" class="form-control" id="Inputsalud">                            
+                          </select>
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputpension">pension</label>
+                          <select name="pension" class="form-control" id="Inputpension">
+                            
+                          </select>
+                       </div>
+                      <div class="form-group">
+                          <input type="hidden" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="persona_id">
+                      </div>                        
+                  </form> 
+                  <form role="form" id="BancoInsert">
+                        <div class="form-group">                          
+                          <input type="hidden" name="idbanco" class="form-control" id="Inputidbanco" placeholder="idbanco">
+                        </div>
+                        <div class="form-group">
+                            <label for="Inputbanco_nombre">banco_nombre</label>
+                            <select name="banco_nombre" class="form-control" id="Inputbanco_nombre">
+                              
+                            </select>
+                         </div>
+                        <div class="form-group">
+                            <label for="Inputnumero_cuenta">numero_cuenta</label>
+                            <input type="text" name="numero_cuenta" class="form-control" id="Inputnumero_cuenta" placeholder="numero_cuenta">
+                         </div>
+                        <div class="form-group">                            
+                            <input type="hidden" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="persona_id">
+                         </div>
+                   </form> 
+            </div>
+  
+                                </div>
+                            </div>
+                            
+                            
+                            <!------------inicio nuvo tab coopertaivismo------->
+                            
+                            <div role="tabpanel" id="tab-7" class="tab-pane">
+                                <div class="panel-body">
+                                   <div class="text-left m-t-md">
+                <form role="form" id="CooperativismoInsert">
+                      <div class="form-group">
+                          <input type="hidden" name="idcooperativismo" class="form-control" id="Inputidcooperativismo" placeholder="idcooperativismo" required>
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputcoop_nombre">coop_nombre</label>
+                          <input type="text" name="coop_nombre" class="form-control" id="Inputcoop_nombre" placeholder="coop_nombre">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputcoop_fecha">coop_fecha</label>
+                          <input type="date" name="coop_fecha" class="form-control" id="Inputcoop_fecha" placeholder="coop_fecha">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputcoop_nit">coop_nit</label>
+                          <input type="text" name="coop_nit" class="form-control" id="Inputcoop_nit" placeholder="coop_nit">
+                       </div>
+                      <div class="form-group">
+                          <input type="hidden" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="persona_id">
+                       </div>
+                   </form>
+            </div>
+  
+                                </div>
+                            </div>
+                            
+                            
+                            <!------------inicio nuvo tab  varios------->
+                            
+                            <div role="tabpanel" id="tab-8" class="tab-pane">
+                                <div class="panel-body">
+                        <div class="text-left m-t-md">
+                <form role="form" id="Varios_empresaInsert">
+                      <div class="form-group">
+                          <input type="hidden" name="idvarios_empresa" class="form-control" id="Inputidvarios_empresa" placeholder="idvarios_empresa" required>
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputcnsc">cnsc</label>
+                          <input type="text" name="cnsc" class="form-control" id="Inputcnsc" placeholder="cnsc">
+                       </div>
+                       <div class="form-group">
+                          <label for="Inputnit_escuela">nit_escuela</label>
+                          <input type="text" name="nit_escuela" class="form-control" id="Inputnit_escuela" placeholder="nit_escuela">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputfecha_acre_super">fecha_acre_super</label>
+                          <input type="date" name="fecha_acre_super" class="form-control" id="Inputfecha_acre_super" placeholder="fecha_acre_super">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputacta_consejo">acta_consejo</label>
+                          <input type="text" name="acta_consejo" class="form-control" id="Inputacta_consejo" placeholder="acta_consejo">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputfecha_aceptacion">fecha_aceptacion</label>
+                          <input type="date" name="fecha_aceptacion" class="form-control" id="Inputfecha_aceptacion" placeholder="fecha_aceptacion">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputpsicofisico">psicofisico</label>
+                          <input type="text" name="psicofisico" class="form-control" id="Inputpsicofisico" placeholder="psicofisico">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputfecha_examen_psicofisico">fecha_examen_psicofisico</label>
+                          <input type="date" name="fecha_examen_psicofisico" class="form-control" id="Inputfecha_examen_psicofisico" placeholder="fecha_examen_psicofisico">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputcarnet_supervigilancia_idcarne">carnet_supervigilancia_idcarne</label>
+                          <select name="carnet_supervigilancia_idcarne" class="form-control" id="Inputcarnet_supervigilancia_idcarne">
+                            
+                          </select>
+                       </div>
+                      <div class="form-group">                       
+                          <input type="hidden" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="persona_id">
+                       </div>                        
+                   </form>
+            </div>         
+  
+                                </div>
+                            </div>
+                            
+                            
+                            <!------------inicio nuvo tab empresa------->
+                            
+                            <div role="tabpanel" id="tab-9" class="tab-pane">
+                                <div class="panel-body">
+                                    <div class="text-left m-t-md">     
+      <form role="form" id="CargoInsert">
+            <div class="form-group">
+                <input type="hidden" name="id" class="form-control" id="Inputid" placeholder="id" required>
+             </div>
+            <div class="form-group">
+                <input type="hidden" name="fecha_ingreso" class="form-control" id="Inputfecha_ingreso" placeholder="fecha_ingreso">
+             </div>
+            <div class="form-group">
+                <label for="Inputempresa_idempresa">empresa_idempresa</label>
+                <select name="empresa_idempresa" class="form-control" id="Inputempresa_idempresa" onchange="cargarAreas(this.value);">
+                                
+                </select> 
+             </div>
+            <div class="form-group">
+                <label for="Inputarea_empresa_idarea_emp">area_empresa_idarea_emp</label>
+                <select name="area_empresa_idarea_emp" class="form-control" id="Inputarea_empresa_idarea_emp" onchange="cargarCargos(this.value);">
+
+                </select>
+             </div>
+            <div class="form-group">
+                <label for="Inputcargo_empreso_idcargo">cargo_empreso_idcargo</label>
+                <select name="cargo_empreso_idcargo" class="form-control" id="Inputcargo_empreso_idcargo">
+                                               
+                </select>
+             </div>
+            <div class="form-group">
+                <input type="hidden" name="puesto_idpuesto" class="form-control" id="Inputpuesto_idpuesto" placeholder="puesto_idpuesto">
+             </div>  
+             <button>dd</button>           
+          </form>
+                                    </div>  
+                                </div>
+                            </div>
+                            
+                            
+                            <!------------inicio nuvo tab ------->
+                            
+                            <div role="tabpanel" id="tab-10" class="tab-pane">
+                                <div class="panel-body">
+                                    <div class="text-left m-t-md">
+                                        
+                                        
+                                    </div>
+  
+                                </div>
+                            </div>
+                            
+                            
+                            
+                           <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                        </ul>  
+                            
+                            
+                            
+                        </div>
+
+
+                    </div>
+    

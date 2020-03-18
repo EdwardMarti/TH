@@ -1,0 +1,553 @@
+
+ 
+    <link href="css/plugins/dropzone/basic.css" rel="stylesheet">
+    <link href="css/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <link href="css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
+    <link href="css/plugins/codemirror/codemirror.css" rel="stylesheet">
+    
+            <!-- Sweet Alert -->
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    
+    
+ 
+    
+    
+    <div class="ibox ">
+        <div style="text-align: center; color: black" class="ibox-title">
+            <h1><b>Subir Documentos Empleado</b></h1>
+                        
+                        </div>
+        
+        
+         <div class="col-lg-12">
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li><a class="nav-link active show" data-toggle="tab" href="#tab-1">Subir Archivos</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-2">Ver Documentos</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" id="tab-1" class="tab-pane active show">
+                                <div class="panel-body">
+
+                                
+                        <div class="ibox-content">
+                            <form id="formularioArchivos" method="post" enctype="multipart/form-data">              
+    <div class="ibox-content"><div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+  
+                <label><B>Foto*</B></label>
+                <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_foto">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="foto" accept=".jpeg" data-max-size="2048"></span>
+                                    
+                                <span class="fileinput-exists fileinput-filename">foto.jpeg</span>
+                                
+                                <a href="javascript:descargar('foto.jpeg');"  class="fileinput-exists" style="float: none" target="_blank">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+             
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Cedula*</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_cedula">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="cedula" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">cedula.pdf</span>
+                                <a href="javascript:descargar('cedula.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+              
+            </div>
+
+
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>libreta</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_libreta">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="libreta" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">libreta.pdf</span>
+                                <a href="javascript:descargar('libreta.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+           
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Diplona Bachiller</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_diploma_bachiller">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="diploma_bachiller" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">diploma_bachiller.pdf</span>
+                                <a href="javascript:descargar('diploma_bachiller.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+             
+            </div>
+
+
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Curso Vigilancia</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_curso_vigilancia">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="curso_vigilancia" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">curso_vigilancia.pdf</span>
+                                <a href="javascript:descargar('curso_vigilancia.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+              
+            </div>
+
+
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Estudio de Seguridad*</B></label>
+                <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_estudio_seguridad">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="estudio_seguridad" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">estudio_seguridad.pdf</span>
+                                <a href="javascript:descargar('estudio_seguridad.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+               
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Acta Consejo</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_acta_consejo">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="acta_consejo" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">acta_consejo.pdf</span>
+                                <a href="javascript:descargar('acta_consejo.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+             
+            </div>
+
+
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Curso Cooperativismo</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_curso_cooperativismo">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="curso_cooperativismo" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">curso_cooperativismo.pdf</span>
+                                <a href="javascript:descargar('curso_cooperativismo.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+              
+            </div>
+
+
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Otros Cursos</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_otros_cursos">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="otros_cursos" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">otros_cursos.pdf</span>
+                                <a href="javascript:descargar('otros_cursos.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+              
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Certificaciones Laborales*</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_certificacion_laboral">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="certificacion_laboral" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">certificacion_laboral.pdf</span>
+                                <a href="javascript:descargar('certificacion_laboral.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+              
+            </div>
+
+
+        </div>
+
+    </div>
+    
+      
+    </div>
+    
+    
+    
+    <input type="hidden" id="cedula_carpeta" name="cedula"  />
+    <button class="btn btn-info ">registrar</button>
+</form>
+                        </div>
+                                </div>
+                            </div>
+                            
+ <!------- **********************segundo tab ********************************------>   
+ 
+                            <div role="tabpanel" id="tab-2" class="tab-pane">
+                                <div class="panel-body">
+                                            <div class="ibox-content">
+                            <form id="formularioArchivos" method="post" enctype="multipart/form-data">              
+    <div class="ibox-content"><div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+  
+                <label><B>Foto*</B></label>
+                <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_foto">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="foto" accept=".jpeg" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">foto.jpeg</span>
+                                <a href="javascript:descargar('foto.jpeg');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+             
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Cedula*</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_cedula">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="cedula" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">cedula.pdf</span>
+                                <a href="javascript:descargar('cedula.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+              
+            </div>
+
+
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>libreta</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_libreta">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="libreta" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">libreta.pdf</span>
+                                <a href="javascript:descargar('libreta.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+           
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Diplona Bachiller</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_diploma_bachiller">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="diploma_bachiller" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">diploma_bachiller.pdf</span>
+                                <a href="javascript:descargar('diploma_bachiller.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+             
+            </div>
+
+
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Curso Vigilancia</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_curso_vigilancia">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="curso_vigilancia" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">curso_vigilancia.pdf</span>
+                                <a href="javascript:descargar('curso_vigilancia.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+              
+            </div>
+
+
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Estudio de Seguridad*</B></label>
+                <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_estudio_seguridad">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="estudio_seguridad" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">estudio_seguridad.pdf</span>
+                                <a href="javascript:descargar('estudio_seguridad.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+               
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Acta Consejo</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_acta_consejo">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="acta_consejo" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">acta_consejo.pdf</span>
+                                <a href="javascript:descargar('acta_consejo.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+             
+            </div>
+
+
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Curso Cooperativismo</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_curso_cooperativismo">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="curso_cooperativismo" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">curso_cooperativismo.pdf</span>
+                                <a href="javascript:descargar('curso_cooperativismo.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+              
+            </div>
+
+
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Otros Cursos</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_otros_cursos">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="otros_cursos" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">otros_cursos.pdf</span>
+                                <a href="javascript:descargar('otros_cursos.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+              
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label><B>Certificaciones Laborales*</B></label>
+                   <div class="fileinput fileinput-new" data-provides="fileinput" id="cont_certificacion_laboral">
+                                <span class="btn btn-info btn-file"><span class="fileinput-new">Seleccione Archivo</span>
+                                    <span class="fileinput-exists">Cambiar</span><input type="file" name="certificacion_laboral" accept=".pdf" data-max-size="2048"></span>
+                                <span class="fileinput-exists fileinput-filename">certificacion_laboral.pdf</span>
+                                <a href="javascript:descargar('certificacion_laboral.pdf');"  class="fileinput-exists" style="float: none">Descargar</a>
+                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                            </div> 
+              
+            </div>
+
+
+        </div>
+
+    </div>
+    
+      
+    </div>
+    
+    
+    
+    <input type="hidden" id="cedula_carpeta" name="cedula"  />
+    <button class="btn btn-info ">registrar</button>
+</form>
+                        </div>
+                             
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>  
+        
+        
+        
+        
+               
+                    </div>
+    
+    
+  
+
+
+
+
+
+    <!-- Jasny -->
+    <script src="js/plugins/jasny/jasny-bootstrap.min.js"></script>
+
+    <!-- DROPZONE -->
+    <script src="js/plugins/dropzone/dropzone.js"></script>
+
+    <!-- CodeMirror -->
+    <script src="js/plugins/codemirror/codemirror.js"></script>
+    <script src="js/plugins/codemirror/mode/xml/xml.js"></script>
+
+              <!-- Sweet alert -->
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script>
+        Dropzone.options.dropzoneForm = {
+            paramName: "file", // The name that will be used to transfer the file
+            maxFilesize: 2, // MB
+            dictDefaultMessage: "<strong>Drop files here or click to upload. </strong></br> (This is just a demo dropzone. Selected files are not actually uploaded.)"
+        };
+
+        $(document).ready(function(){
+
+            var editor_one = CodeMirror.fromTextArea(document.getElementById("code1"), {
+                lineNumbers: true,
+                matchBrackets: true
+            });
+
+            var editor_two = CodeMirror.fromTextArea(document.getElementById("code2"), {
+                lineNumbers: true,
+                matchBrackets: true
+            });
+
+            var editor_two = CodeMirror.fromTextArea(document.getElementById("code3"), {
+                lineNumbers: true,
+                matchBrackets: true
+            });
+
+            var editor_two = CodeMirror.fromTextArea(document.getElementById("code4"), {
+                lineNumbers: true,
+                matchBrackets: true
+            });
+
+
+            $('.custom-file-input').on('change', function() {
+                let fileName = $(this).val().split('\\').pop();
+                $(this).next('.custom-file-label').addClass("selected").html(fileName);
+            });
+
+       });
+    </script>
+<script>
+      $(document).ready(function() {
+      setCedulaCarpeta(IDSUBIRARCHIVOS);
+      cargarArchivos();
+      });
+    
+    
+    function setCedulaCarpeta(cedula){
+        document.getElementById("cedula_carpeta").value = cedula;
+    }
+    
+    function cargarArchivos(){
+   
+        $.post('../back/controller/todo/listar_archivos_ByPersona.php',{"cedula":document.getElementById("cedula_carpeta").value},function(data){
+            data = JSON.parse(data);
+            console.log(data);
+            for (var i = 0, max = data.length; i < max; i++) {
+                console.log('cont_'+data[i].split('.')[0]);
+                document.getElementById('cont_'+data[i].split('.')[0]).removeAttribute('class');
+                document.getElementById('cont_'+data[i].split('.')[0]).setAttribute('class','fileinput fileinput-exists');
+            
+            }
+            });
+    
+    }
+    
+    
+    function descargar(tipo){
+      window.location.href = '../back/controller/todo/descargar.php?cedula='+document.getElementById("cedula_carpeta").value+'&'+'tipo='+tipo;
+    }
+    
+    
+</script>
+<script>
+    
+    $('#formularioArchivos').submit(function(e){   
+            e.preventDefault();
+            var formData = new FormData(document.getElementById("formularioArchivos"));
+            $.ajax({
+                url: "../back/controller/todo/registrar_archivosByPersona.php",
+                type: "post",
+                dataType: "html",
+                data: formData,
+                cache: false,
+                contentType: false,
+	     processData: false
+            })
+                .done(function(res){
+                    console.log(res);
+                      aceptar();
+                });
+
+       // e.preventDefault();
+       // var formData = new FormData(document.getElementById("formularioArchivos"));
+        //$.post('../back/controller/todo/registrar_archivosByPersona.php',formData,function(data){
+       //     console.log(data);
+       // });
+      //  aceptar();
+    });
+
+     function aceptar(){
+     $('#myModal2').modal('hide');
+       swal({
+                        title: "Registro",
+                        text: "Registro Exitoso!",
+                        type: "success",
+                       // showCancelButton: true,
+                        confirmButtonColor: "#1ab394",
+                        confirmButtonText: "Ok",
+                       // cancelButtonText: "No, cancel plx!",
+                      //   closeOnConfirm: false,
+                        closeOnCancel: false },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                             //       sucursal_emp_Listar_2(mySelect);
+                               empleado_Listar2();
+                           // swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        } 
+                        else {
+                            swal("Cancelled", "Your imaginary file is safe 🙂", "error");
+                        }
+                    });
+   
+};
+</script>

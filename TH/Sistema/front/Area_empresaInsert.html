@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<!--              -------Creado por-------               -->
+<!--             \(°u° )/ Anarchy \( °u°)/               -->
+<!--              ------------------------               -->
+        <!-- Sweet Alert -->
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    
+<!--//    Mi satisfacción es hacerte un poco más vago  \\                  -->
+      <div>
+          <div class="panel panel-default">
+              <div align=center class="panel-heading"><h3 class="panel-title">Registrar área</h3></div>
+              <div align=center class="panel-body">
+                  <form role="form" id="formArea">
+               
+                      <div class="form-group">
+                          <label for="Inputnom_area">Nombre</label>
+                          <input type="text" name="nom_area" class="form-control" id="Inputnom_area" placeholder="Nombre">
+                       </div>
+                        <div class="form-group" style="visibility: hidden; heigth: 0px">
+                                        <label for="Inputempresa_idempresa">Sucursal</label>
+                                      <input type="text" name="empresa_idempresa" class="form-control" id="Inputempresa_idempresa" placeholder="Sucursal">
+                             <br>
+                         </div>       
+                      
+                       <button type="button" class="btn btn-primary" onclick="registraraREA()">Registrar</button>
+                       
+                      <!--  <a href="javascript:preArea_empresaInsert('Area_empresaInsert')" class="btn btn-warning">Registrar</a>-->
+                   </form>
+               </div><!-- panel-body -->
+          </div> <!-- panel -->
+      </div>
+
+             <!-- Sweet alert -->
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+
+                <script>
+                    
+                         var mySelect2;
+
+                                      $(document).ready(function () { //no tocar //
+
+              mySelect2=document.getElementById("Inputempresa_idempresa").value=mySelect;   
+       
+                                    });
+        </script>
+ 
+        
+        <script>
+     function registraraREA(){
+      
+         
+        var url1 = "../back/controller/articulo_insert.php";
+        $.ajax({                        
+           type: "POST",                 
+           url: url1,                     
+           data: $("#formArea").serialize(), 
+                 
+           success: function(data) 
+         
+           {
+               if(data=='true'){
+                 aceptaraREA();
+               }
+                          
+           }
+       });
+   
+};
+
+     function aceptaraREA(){
+    // $('#myModal2').modal('hide');
+       swal({
+                        title: "Registro",
+                        text: "Registro Exitoso!",
+                        type: "success",
+                       // showCancelButton: true,
+                        confirmButtonColor: "#1ab394",
+                        confirmButtonText: "Ok",
+                       // cancelButtonText: "No, cancel plx!",
+                      //   closeOnConfirm: false,
+                        closeOnCancel: false },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                          // alert('mySelect2'+mySelect2);
+                          console.log(mySelect2);
+                               area_Listar_2(mySelect2);
+                           // swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        } 
+                        else {
+                            swal("Cancelled", "Your imaginary file is safe :)", "error");
+                        }
+                    });
+   
+};
+</script>
+        
+<!-- That´s all folks! -->
+</html>

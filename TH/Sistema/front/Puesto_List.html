@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+             <!-- Sweet Alert -->
+    <!-- Toastr style -->
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    
+        <!-- Sweet Alert -->
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    
+      <div class="panel panel-default">
+                  <div align=center class="panel-heading">
+                      
+                      <h2><b>Listar puestos de trabajo</b></h2>
+                  </div>
+                  <div align=center class="panel-body">
+                 <!--     <div class="text-left m-t-md"> -->
+                          <div class="ibox-content">
+                            
+                        <div class="row">
+                             <div class="col-lg-12">
+                         <div class="row">
+                             <div class="col-lg-6">
+                                       <div class="form-group">
+                <label for="InputidEmpresa_p">Empresa </label>
+                <select name="idEmpresa_p" class="form-control" id="InputidEmpresa_p" onchange="ListarSucursales(this.value);">
+                                
+                </select> 
+     <br>
+ </div>           
+                             </div>
+                             <div class="col-lg-6">
+                                                      
+                                   <div class="form-group">
+                <label for="Inputempresa_idempresa">Sucursal</label>
+                <select name="empresa_idempresa" class="form-control" id="Inputempresa_idempresa1" onchange="ListarPuestos(this.value);">
+                    <option>SELECCIONE</option>
+                </select>
+             </div>
+                             </div>
+                             
+        
+                             </div>
+                               
+                               
+                          
+           
+                              
+                                 <div id="mostrarcontenido2">
+                                     
+                                 </div>          
+                                 
+                                 
+
+
+                             
+                                <div class="hr-line-dashed"></div>
+                             
+                                  
+                               
+                         
+                             </div>
+                             </div>
+                        
+                      
+                            
+                        </div>
+                    <!--       </div>  --->  
+                    </div>
+                </div>
+
+       <div class="modal inmodal" id="myModal_puesto" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div   style="color: black ; text-shadow: 1px 2px #999;" class="modal-dialog">
+            <div class="modal-content animated flipInY">
+                
+                <form role="form" id="formPuesto">
+
+                    <div class="modal-header"> <!---------inicia Header---->
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">Registrar Puesto</h4>
+                    </div> <!---------Fin Header  ---->
+
+                    <div class="modal-body"> <!---------inicia Body---->
+                        
+                   <div class="form-group">
+                          <label for="Inputnombre">nombre</label>
+                          <input type="text" name="nombre" class="form-control" id="Inputnombre" placeholder="nombre">
+                       </div>  
+                        <div style="display: none" class="col-lg-12">
+                                <div class="form-group">
+                          <label for="Inputempresa_idempresa">Sucursal</label>
+                          <input type="text" name="sucursal" class="form-control" id="imput_sucursal" placeholder="Sucursal">
+                       </div>   
+                    
+                                 </div>
+
+                    </div> <!---------Fin Body---->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+
+                        <button type="button" class="btn btn-primary" onclick="registraraREA()">Salvar Cambios</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+                  <!-- Sweet alert -->
+ <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+
+    
+
+
+
+
+<script>
+      toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "progressBar": true,
+  "preventDuplicates": false,
+  "positionClass": "toast-top-right",
+  "onclick": null,
+  "showDuration": "400",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+  };
+</script>
+    
+    <script>
+           
+        $(document).ready(function () { //no tocar //
+           $.get('../back/controller/empresa_p/Empresa_pList.php',function(depa){
+          var mySelect=document.getElementById("InputidEmpresa_p");
+         removeAllChildren(mySelect);
+             mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idEmpresa_p,depa[i].Empresa_p_nombre));
+            }  
+          
+        });
+      
+     
+                                    });
+    </script>
+    <script>
+    var mySelect2;
+
+             function myModal_pueto() {
+   
+            $('#myModal_puesto').modal({show: true});
+            $('#Inputnombre').val("");
+       
+     //    $('#Inputnom_area').val("");
+     // cargarDepartamentos_r();
+    
+  var valorPuesto=document.getElementById("Inputempresa_idempresa1").value;
+ 
+    //   document.getElementById("Inputempresa_idempresa1").value;
+  $('#imput_sucursal').val(valorPuesto);
+  mySelect2=valorPuesto;
+   
+   //  document.getElementById("InputEmpresa_p_idEmpresa_p_r").value=valorEmpresa;
+          ///         console.log(valorEmpresa);
+             
+             
+         //       ciudad = $('select[id=InputidEmpresa_p] option:selected').text();
+    //    $('#Inputidempresa').val(ciudad);
+            }
+
+
+    
+ 
+   function ListarSucursales(empresa){ 
+ 
+        $.get('../back/controller/empresa/EmpresaList_sucursal.php',{'empresa':empresa},function(depa){
+        var mySelect=document.getElementById("Inputempresa_idempresa1");
+          removeAllChildren(mySelect);
+            mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idempresa,depa[i].nombre_empresa));
+            }  
+          
+        });
+      
+      }
+      
+   function cargarAreas(empresa){      
+        $.get('../back/controller/area_empresa/Area_empresaList.php',{'empresa':empresa},function(depa){
+          var mySelect=document.getElementById("Inputarea_empresa_idarea_emp1");
+          removeAllChildren(mySelect);
+               mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);         
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idarea_emp,depa[i].nom_area));
+            }  
+          
+        });
+      }
+      
+   function cargarCargos(empresa){     
+       ///cargo_empreso/Cargo_empresoList_1.php?empresa=' + empresa2,postCargo_empresoList
+        $.get('../back/controller/cargo_empreso/Cargo_empresoList_1.php',{'empresa':empresa},function(depa){
+          var mySelect=document.getElementById("Inputnombre_Cargo");
+              removeAllChildren(mySelect);
+               mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);         
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idcargo,depa[i].nom_cargo));
+            }  
+          
+        });
+      }
+      
+       function ListarPuestos(empresa){
+                  // console.log(empresa);
+                
+                   puesto_Listar_Tabla(empresa);
+               //  preArea_empresaList('mostrarcontenido2',empresa) // no me cargo exportar
+                     
+                 } 
+</script>   
+
+<script>      
+
+
+    
+     function registrarPuesto(){
+      
+        // alert('asdsad');
+        var url1 = "../back/controller/puesto/PuestoInsert.php";
+        $.ajax({                        
+           type: "POST",                 
+           url: url1,                     
+           data: $("#formPuestoInsert").serialize(), 
+           
+          success: function(data) 
+           //   print(data),
+          {
+         //   console.log(data);
+      //   alert(data.toString());
+       if(data=='true'){
+         //    alert('asdsadasd');
+          aceptar_Puesto();
+          }
+                          
+        }
+       });
+   
+};
+
+     function aceptar_Puesto(){
+      //   alert();
+      //        $('#myModal_puesto').modal('hide');
+       swal({
+                        title: "Registro",
+                        text: "Registro Exitoso!",
+                        type: "success",
+                       // showCancelButton: true,
+                        confirmButtonColor: "#1ab394",
+                        confirmButtonText: "Ok",
+                       // cancelButtonText: "No, cancel plx!",
+                      //   closeOnConfirm: false,
+                        closeOnCancel: false },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                     //     alert('mySelect2'+mySelect2);
+                        
+                      puesto_Listar_Tabla(mySelect2);
+                           // swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        } 
+                        else {
+                            swal("Cancelled", "Your imaginary file is safe :)", "error");
+                        }
+                    });
+        
+   
+};
+</script>   
+
+
+
+       <script>
+     function registraraREA(){
+      
+         
+        var url1 =  "../back/controller/puesto/PuestoInsert.php";
+        $.ajax({                        
+           type: "POST",                 
+           url: url1,                     
+           data: $("#formPuesto").serialize(), 
+                 
+           success: function(data) 
+          //{
+        //    console.log("respuesta: ", data);
+       // }
+           
+        {
+              if(data=='true'){
+               aceptaraREA();
+             }
+          }
+       });
+   
+};
+
+     function aceptaraREA(){
+   $('#myModal_puesto').modal('hide');
+
+       swal({
+                        title: "Registro",
+                        text: "Registro Exitoso!",
+                        type: "success",
+                       // showCancelButton: true,
+                        confirmButtonColor: "#1ab394",
+                        confirmButtonText: "Ok",
+                       // cancelButtonText: "No, cancel plx!",
+                      //   closeOnConfirm: false,
+                        closeOnCancel: false },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                      
+                        puesto_Listar_Tabla(mySelect2);
+                             
+                          swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        } 
+                        else {
+                            swal("Cancelled", "Your imaginary file is safe :)", "error");
+                        }
+                    });
+  
+};
+
+
+</script>
+
+<!-- That´s all folks! -->
+</html>

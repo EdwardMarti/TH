@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+    <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+    
+        <!-- Sweet Alert -->
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox ">
+                        <div class="ibox-title"> 
+
+                        <div class="ibox-tools">
+
+                            <!--     <button type="button" class="btn btn-primary" data-toggle="modal" 
+                                         data-target="#myModal5" data-backdrop="static" data-keyboard="false">
+                                          + Agregar
+                                      </button>-->
+
+                            <button type="button" class="btn btn-primary" onclick="mostrarRegistrar()">
+                                + Agregar
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div class="ibox-content">
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover dataTables-example" >
+                                <thead>
+          <tr>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">#</th>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">Cargo</th>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">idarea_empArea_empresa</th>
+                                       
+                                 <!--   <th  style=" color:#FFFFFF; background-color: #616161  !important"><i class="fa fa-eye"></i></th>-->
+                                        <th  style=" color:#FFFFFF; background-color: #616161  !important"><i class="fa fa-edit"></i></th>
+                                      <!--           <th style=" color:#FFFFFF; background-color: #616161  !important"><i class="fa fa-trash"></i></th>-->
+                                  
+                                    </tr>
+                                </thead>
+                                <tbody id="Cargo_empresoList">
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                                  <th style=" color:#FFFFFF; background-color: #616161  !important">#</th>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">Cargo</th>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">idarea_empArea_empresa</th>
+                                    
+                                        <th  style=" color:#FFFFFF; background-color: #616161  !important"><i class="fa fa-edit"></i></th>
+                                     
+                                  
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+     <div class="modal inmodal" id="myModalcargo" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+                                <div   style="color: black ; text-shadow: 1px 2px #999;" class="modal-dialog">
+                                    <div class="modal-content animated flipInY">
+                                         <form role="form" id="areaform">
+                                       
+                                        <div class="modal-header"> <!---------inicia Header---->
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                            <h4 class="modal-title">Registrar Cargo</h4>
+                                        </div> <!---------Fin Header  ---->
+                                        
+                                        <div class="modal-body"> <!---------inicia Body---->
+                                            
+                                                    
+       
+                      <div class="form-group">
+                          <label for="Inputnom_cargo">Nombre Cargo</label>
+                          <input type="text" name="nom_cargo" class="form-control" id="Inputnom_cargo" placeholder="nombre_empresa">
+                       </div>
+                    
+                                            <div style="display: none" class="form-group">
+                          <label for="Inputarea_empresa_idarea_emp">areas empresa</label>
+                          <input type="text" name="area_empresa_idarea_emp" class="form-control"  id="Inputarea_empresa_idarea_emp" placeholder="empresa">
+                       </div>
+                                            
+              
+                              
+                                        </div> <!---------Fin Body---->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                          
+                                            <button type="button" class="btn btn-primary" onclick="registrar_Cargo()">Salvar Cambios</button>
+                                        </div>
+                                        
+                                          </form>
+                                    </div>
+                                </div>
+                            </div>
+
+ <script src="js/plugins/dataTables/datatables.min.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap4.min.js"></script>
+
+              <!-- Sweet alert -->
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function(){
+            $('.dataTables-example').DataTable({
+                pageLength: 25,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
+
+            });
+
+        });
+
+    </script>
+    <script>
+         var mySelect;
+           var mimodal = null;
+            function mostrarRegistrar() {
+            //    var a=''+id;
+        mySelect=document.getElementById("Inputarea_empresa_idarea_emp1").value;
+      //   document.getElementById("InputEmpresa_p_idEmpresa_p").value=mySelect;
+               
+            $("#Inputarea_empresa_idarea_emp").val(mySelect);
+          
+            $('#myModalcargo').modal({show: true});
+
+             
+            }
+    </script>
+    
+<script>
+     function registrar_Cargo(){
+      
+         
+        var url = "../back/controller/cargo_empreso/Cargo_empresoInsert.php";
+      
+        $.ajax({                        
+           type: "POST",                 
+           url: url,                     
+           data: $("#areaform").serialize(), 
+          
+         
+           success: function(data) 
+         
+           {
+               if(data=='true'){
+                 aceptar();
+               }
+                          
+           }
+       });
+   
+};
+
+     function aceptar(){
+     $('#myModalcargo').modal('hide');
+       swal({
+                        title: "Registro",
+                        text: "Registro Exitoso!",
+                        type: "success",
+                       // showCancelButton: true,
+                        confirmButtonColor: "#1ab394",
+                        confirmButtonText: "Ok",
+                       // cancelButtonText: "No, cancel plx!",
+                      //   closeOnConfirm: false,
+                        closeOnCancel: false },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                               cargo_Listar_2(mySelect);
+                           // swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        } 
+                        else {
+                            swal("Cancelled", "Your imaginary file is safe :)", "error");
+                        }
+                    });
+   
+};
+</script>
+
+    <!-- That´s all folks! -->
+</html>
+

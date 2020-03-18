@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<!--              -------Creado por-------               -->
+<!--             \(°u° )/ Anarchy \( °u°)/               -->
+<!--              ------------------------               -->
+         <!-- Sweet Alert --> 
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+<!--//    Has encontrado la frase #1024 ¡Felicidades! Ahora tu proyecto funcionará a la primera  \\                  -->
+      <div>
+          <div class="panel panel-default">
+              <div align=center class="panel-heading"><h3 class="panel-title">Registrar cargo</h3></div>
+              <div class="col-lg-12">
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li><a class="nav-link active" data-toggle="tab" href="#tab-1"> Retirar</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-2">Trasladar</a></li>
+                        </ul>
+                        <div class="tab-content">
+   <!--***************************************** Panel 1 retiros **********************************************-->                         
+                            <div role="tabpanel" id="tab-1" class="tab-pane active">
+                                <div class="panel-body">
+     <div align=center class="panel-body">
+         
+                  <form role="form" id="PuestoActu">
+                      
+                         <div class="row">
+                         
+                                <div class="col-lg-6">
+                      <div class="form-group">
+                          <label for="Inputfecha_SalidaAct">fecha Salida</label>
+                          <input type="date" name="fecha_SalidaAct" class="form-control" id="Inputfecha_SalidaAct" placeholder="fecha_ingreso">
+                       </div>
+                  </div>
+                                <div class="col-lg-6">
+                      <div class="form-group">
+                          <label for="Inputfecha_ingresoAct">Nombre </label>
+                          <input type="text" name="nom_retirar" class="form-control" id="Inputnom_retirar" placeholder="fecha_ingreso" readonly>
+                       </div>
+                  </div>
+     
+                             <div class="col-lg-12"> 
+                                 <div class="form-group">
+                                     <label for="Inputpuesto_idpuesto"><b>Observaciones</b></label>
+                                     <textarea name="observacion" id="imput_observacion" class="form-control diff-textarea"  rows="6"></textarea>
+
+                                 </div>
+                             </div>          
+                               
+                             <div  style="display: none" class="col-lg-4">
+                                   <div class="form-group">
+                          <label for="InputidAct">idcargo</label>
+                          <input type="text" name="idAct" class="form-control" id="InputidAct" placeholder="id" required>
+                       </div>
+                             </div> 
+                         
+                             </div>
+                        <button type="button" id="btn-ingresar"  class="btn btn-primary" onclick="actualizar()">Retirar</button>
+                   
+                      </form>
+                      
+                             </div>
+           
+                                </div>
+                            </div>
+                            
+   <!--***************************************** Inicio Panel 2 Traslado**********************************************-->                         
+                            <div role="tabpanel" id="tab-2" class="tab-pane">
+                                <div class="panel-body">
+                                <div align=center class="panel-body">
+                  <form role="form" id="formInsert">
+                      
+                      <div class="row">
+          
+                          <div class="col-lg-6">
+                              <div class="form-group">
+                                  <label for="Inputfecha_ingreso">Fecha Retiro</label>
+                                  <input type="date" name="fecha_SalidaAct" class="form-control" id="Inputfecha_SalidaAct" placeholder="fecha_ingreso">
+                              </div>
+                          </div>
+                           <div class="col-lg-6">
+                      <div class="form-group">
+                          <label for="Inputfecha_ingresoAct">Nombre </label>
+                          <input type="text" name="nom_traslado" class="form-control" id="Inputnom_traslado" placeholder="fecha_ingreso" readonly>
+                       </div>
+                  </div>
+                          
+                          
+                          <div class="col-lg-4">
+                              <div class="form-group">
+                                  <label for="Inputfecha_ingreso">Fecha Ingreso</label>
+                                  <input type="date" name="fecha_ingreso" class="form-control" id="Inputfecha_ingreso" placeholder="fecha_ingreso">
+                              </div>
+                          </div>
+                          <div class="col-lg-4">
+
+                              <div class="form-group">
+                                  <label for="InputidEmpresa_p">empresa </label>
+                                  <select name="idEmpresa_p" class="form-control" id="InputidEmpresa_p" onchange="ListarSucursales(this.value);">
+
+                                  </select> 
+                                  <br>
+                              </div>                                 
+                          </div>    
+                          <div class="col-lg-4">
+
+                              <div class="form-group">
+                                  <label for="Inputempresa_idempresa">Sucursal</label>
+                                  <select name="empresa_idempresa" class="form-control" id="Inputempresa_idempresa" onchange="cargarAreas(this.value);">
+                                      <option>SELECCIONE</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="col-lg-4"> 
+                              <div class="form-group">
+                                  <label for="Inputarea_empresa_idarea_emp">area</label>
+                                  <select name="area_empresa_idarea_emp" class="form-control" id="Inputarea_empresa_idarea_emp1" onchange="listarCargos(this.value);">
+                                      <option>SELECCIONE</option>
+                                  </select>
+                              </div>
+
+                          </div>     
+
+                          <div class="col-lg-4"> 
+                              <div class="form-group">
+                                  <label for="Inputcargo_empreso_idcargo">cargo</label>
+                                  <select name="cargo_empreso_idcargo" class="form-control" id="Inputcargo_empreso_idcargo" >
+                                      <option>SELECCIONE</option>
+                                  </select>
+                              </div>
+
+                          </div>             
+                          <div class="col-lg-4"> 
+                              <div class="form-group">
+                                  <label for="Inputpuesto_idpuesto">Puestos</label>
+                                  <select name="puesto_idpuesto" class="form-control" id="Inputpuesto_idpuesto" >
+                                      <!-- <option>SELECCIONE</option>--->
+                                  </select>
+                              </div>
+
+                          </div>  
+
+                          <div class="col-lg-12"> 
+                              <div class="form-group">
+                                  <label for="Inputpuesto_idpuesto"><b>Observaciones</b></label>
+                                  <textarea id="observacion_tras" name="imputobservacion_tras" class="form-control "  rows="6"></textarea>
+
+                              </div>
+                          </div>  
+
+
+                          <div style="display: none" class="col-lg-4"> 
+                              <div class="form-group">
+                                  <label for="Inputpersona_id">persona_a actualizar</label>
+                                  <input type="text" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="puesto_idpuesto">
+                              </div>        
+                          </div>    
+                          
+                               <div style="display: none" class="col-lg-4">
+                                   <div class="form-group">
+                          <label for="InputidAct">idcargo2</label>
+                          <input type="text" name="idAct2" class="form-control" id="InputidAct2" placeholder="id" required>
+                       </div>
+                             </div> 
+                   
+                             </div>
+ 
+                      <button type="button" id="btn-ingresar"  class="btn btn-primary" onclick="registrarCa()">Trasladar</button>
+                      </form>
+                      
+                             </div>
+           
+                                </div>
+                            </div>
+   <!--***************************************** Fin Panel 2 **********************************************-->                         
+                        </div>
+
+
+                    </div>
+                </div>
+         
+                
+                
+               </div><!-- panel-body -->
+          </div> <!-- panel -->
+   
+              <!-- Sweet alert -->
+ <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+ 
+ 
+ <!----------------------*******Actualizar *******************************---------->
+ 
+             <script>
+       var mySelect2;
+      // var a;
+                        $(document).ready(function () {
+                                                   
+                           
+      
+         
+//    var a=''+id;
+document.getElementById("Inputpersona_id").value=SUPER_GLOBAL;
+document.getElementById("InputidAct").value=SUPER_GLOBAL_IDCARGO;
+document.getElementById("Inputnom_retirar").value=SUPER_GLOBAL_NOMBRE;
+document.getElementById("Inputnom_traslado").value=SUPER_GLOBAL_NOMBRE;
+document.getElementById("InputidAct2").value=SUPER_GLOBAL_IDCARGO;
+//  a=SUPER_GLOBAL_IDCARGO;
+// mySelect2=document.getElementById("Inputempresa_idempresa_p").value;
+      
+$.get('../back/controller/puesto/PuestoList_combo.php',{'empresa':SUPER_GLOBAL_SUCURSAL},function(depa){
+var mySelect=document.getElementById("Inputpuesto_idpuestoAct");
+
+  if(mySelect!=null){
+              removeAllChildren(mySelect);
+          }
+//  mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+depa = JSON.parse(depa);
+for (var i = 1 ; i < depa.length; i++) {
+  mySelect.appendChild(createOPTION(depa[i].idpuesto,depa[i].nombre));
+}  
+          
+});
+                                      
+                        });
+                                    
+                                    
+                         function actualizar(){
+          
+var url = "../back/controller/cargo/CargoUpdate.php";
+console.log($("#PuestoActu").serialize());
+$.ajax({                        
+type: "POST",                 
+url: url,                     
+data: $("#PuestoActu").serialize(), 
+          
+        
+         
+success: function(data)         
+{
+   if(data=='true'){
+    //  console.log(data);
+      aceptarCargoG();
+   }
+                          
+}
+});
+}
+   
+                     
+function aceptarCargoG(){
+$('#myModal').modal('hide');
+swal({
+            title: "Registro",
+            text: "Registro Cargo Exitoso!",
+            type: "success",
+           // showCancelButton: true,
+            confirmButtonColor: "#1ab394",
+            confirmButtonText: "Ok",
+           // cancelButtonText: "No, cancel plx!",
+          //   closeOnConfirm: false,
+            closeOnCancel: false },
+        function (isConfirm) {
+            if (isConfirm) {
+             //   alert(mySelect2);
+                console.log('siver');
+                empleado_Listar2();
+                  // puesto_Listar_Tabla(mySelect2);
+               // swal("Deleted!", "Your imaginary file has been deleted.", "success");
+            } 
+            else {
+                swal("Cancelled", "Your imaginary file is safe :)", "error");
+            }
+        });
+   
+};
+    
+    
+                
+             </script>
+        
+   <!----------------------*******  Fin   **********   Actualizar *******************************---------->      
+        
+        
+               <script>
+                      $(document).ready(function () { //no tocar //
+           $.get('../back/controller/empresa_p/Empresa_pList.php',function(depa){
+          var mySelect=document.getElementById("InputidEmpresa_p");
+         removeAllChildren(mySelect);
+             mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idEmpresa_p,depa[i].Empresa_p_nombre));
+            }  
+            });
+     });
+  
+           
+   function ListarSucursales(empresa){ 
+           
+        $.get('../back/controller/empresa/EmpresaList_sucursal.php',{'empresa':empresa},function(depa){
+          var mySelect=document.getElementById("Inputempresa_idempresa");
+          removeAllChildren(mySelect);
+            mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idempresa,depa[i].nombre_empresa));
+            }  
+          
+        });
+    
+      }
+      
+   function cargarAreas(empresa){      
+        $.get('../back/controller/area_empresa/Area_empresaList.php',{'empresa':empresa},function(depa){
+           var mySelect=document.getElementById("Inputarea_empresa_idarea_emp1");
+          removeAllChildren(mySelect);
+               mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);         
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idarea_emp,depa[i].nom_area));
+            }  
+          
+        });
+       
+          listarPuesto(empresa);
+      }
+   function listarCargos(empresa){ 
+     
+        $.get('../back/controller/cargo_empreso/Cargo_empresoList_1.php',{'empresa':empresa},function(depa){
+          var mySelect=document.getElementById("Inputcargo_empreso_idcargo");
+          removeAllChildren(mySelect);
+               mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);         
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idcargo,depa[i].nom_cargo));
+            }  
+          
+        });
+      }
+   function listarPuesto(empresa){ 
+
+        $.get('../back/controller/puesto/PuestoList_tabla.php',{'empresa':empresa},function(depa){
+          var mySelect=document.getElementById("Inputpuesto_idpuesto");
+         if(mySelect!=null){
+              removeAllChildren(mySelect);
+          }
+            //   mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);         
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idpuesto,depa[i].nombre));
+            }  
+          
+        });
+      }
+      
+      
+         function registrarCa(){
+      
+         
+        var url = "../back/controller/cargo/CargoInsert.php";
+        $.ajax({                        
+           type: "POST",                 
+           url: url,                     
+           data: $("#formInsert").serialize(), 
+          
+         
+           success: function(data) 
+         
+           {
+               if(data=='true'){
+                   aceptarCargoG();
+               }
+                          
+           }
+       });
+   
+}; 
+      
+
+   
+        </script>
+</html>

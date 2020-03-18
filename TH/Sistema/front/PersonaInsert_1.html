@@ -1,0 +1,240 @@
+               
+<div class="panel panel-default">
+                  <div align=center class="panel-heading">
+                      <h1><b>Registrar Usuario</b></h1></div>
+                  <div align=center class="panel-body">
+                      
+                   
+                      
+                          <div class="ibox-content">
+                              
+                                 <div class="form-group">
+                          <label for="Inputarea_empresa_idarea_emp">Usuarios</label>
+                          <select name="usuarios" class="form-control" id="Inputusuario" onchange="cargarDatos(this.value);">
+                              <option>SELECCIONE</option>
+                          </select>
+                      </div>
+                              
+                         <div class="row">
+                             <div class="col-lg-12">
+                             
+                                 <form id="enviar" role="form" method="post" action="../back/controller/persona/PersonaInsert_1.php">
+                           <div class="text-left m-t-md">
+                                     <div class="row">
+                              <div style="color: white" class="hr-line-dashed"></div>    
+                              <div class="col-lg-6">
+                                   <div class="form-group">
+                              <label for="Inputnombres">nombres</label>
+                              <input type="text" name="nombres" class="form-control" id="Inputnombres" placeholder="nombres" required="">
+                           </div>
+                          <div class="form-group">
+                              <label for="Inputapellidos">apellidos</label>
+                              <input type="text" name="apellidos" class="form-control" id="Inputapellidos" placeholder="apellidos" required="">
+                           </div>
+                    
+                              </div>
+                              <div class="col-lg-6">
+                                  
+                          <div class="form-group">
+                              <label for="Inputcedula">cedula</label>
+                              <input type="text" name="cedula" class="form-control" id="Inputcedula" placeholder="cedula" required="">
+                           </div>
+                           <div class="form-group">
+                                    <label>Nacionalidad *</label>
+                                    <div ><select class="form-control m-b" name="nacionalidad" id="nacionalidad" required="">
+                                            <option value="0">Seleccione</option>                       
+                                            <option value="1">Col</option>
+                                            <option value="2">Ven</option>
+                                            <option value="3">Pasp</option>
+
+                                        </select>
+
+
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                     <div class="form-group">
+                              <label for="Inputcorreo">correo</label>
+                              <input type="text" name="correo" class="form-control" id="Inputcorreo" placeholder="correo" required="">
+                           </div>
+                        
+                                     <div class="form-group">
+                              <label for="InputIngreso">Fecha de Ingreso</label>
+                              <input type="date" name="Ingreso" class="form-control" id="InputIngreso" placeholder="correo" required="">
+                           </div>
+                        
+                              </div>
+                              <div class="col-lg-6">
+                                       <div class="form-group">
+                <label for="Inputempresa_idempresa">empresa_idempresa</label>
+                <select name="empresa_idempresa" class="form-control" id="Inputempresa_idempresa" onchange="cargarAreas(this.value);">
+                                
+                </select> 
+             </div>
+                                <div class="form-group">
+                <label for="Inputarea_empresa_idarea_emp">area_empresa_idarea_emp</label>
+                <select name="area_empresa_idarea_emp" class="form-control" id="Inputarea_empresa_idarea_emp" onchange="cargarCargos(this.value);">
+                    <option>SELECCIONE</option>
+                </select>
+             </div>
+     
+                              </div>
+                              
+                              <div class="col-lg-6">
+                                  <div class="form-group">
+                                      <label for="Inputcargo_empreso_idcargo">cargo_empreso_idcargo</label>
+                                      <select name="cargo_empreso_idcargo" class="form-control" id="Inputcargo_empreso_idcargo">
+                                           <option>SELECCIONE</option>
+                                      </select>
+                                  </div>
+                           
+                              </div>
+                              <div class="col-lg-6">
+                            
+                                  
+                                  <div class="form-group">
+                                      <label>Roll *</label>
+                                     <select class="form-control" name="roll_idroll" id="combo_roll_idroll" required="">
+                                              <option value="0">SELECCIONE</option>                       
+                                              <option value="1">ADMINISTRADOR</option>
+                                              <option value="2">USUARIO</option>
+                                              <option value="3">NINGUNO</option>
+
+                                          </select>
+
+
+                            
+                                  </div>
+                              </div>
+
+
+                        
+                     
+                       <div style="background-color:  white" class="hr-line-dashed"></div>
+                          
+                                  
+                              </div>
+                         
+                          
+                        
+          <div class="hr-line-dashed"></div>                 
+                     
+                        
+         
+                     
+                             </div>
+                                      <button type="submit" class="btn btn-primary block  ">Registrar</button>
+                                       </form>
+                             </div>
+                        
+                      
+                            
+                        </div>
+                      </div>    
+                    </div>
+                </div>
+  <!-- MODAL DE CARGOS -->
+
+           
+          
+                
+    <!-- Latest compiled JavaScript -->
+    
+    
+                 <script>
+        
+        
+
+        
+        
+        $(document).ready(function () { //no tocar //
+           $.get('../back/controller/persona/PersonaList_Todo.php',function(depa){
+          var mySelect=document.getElementById("Inputusuario");
+         removeAllChildren(mySelect);
+             mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].id,depa[i].nombres+" "+depa[i].apellidos));
+            }  
+          
+        });
+      
+      
+                                    });
+        </script>
+    
+
+        
+        
+        
+        
+     
+              <script>
+              
+//---------------------------------------------------------------------
+  
+
+ 
+
+   function cargarDatos(empresa){      
+       
+        $.get('../back/controller/persona/PersonaListXUser.php',{'empresa':empresa},function(depa){
+        //  document.getElementById("Inputcedula").value=depa[i].cedula;
+          // $('#Inputnombre').val("");//
+         // removeAllChildren(mySelect);
+         //    mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);         
+         for (var i = 1 ; i < depa.length; i++) {
+             //document.getElementById("Inputempresa_idempresa1").value;
+               document.getElementById("Inputcedula").value=depa[i].cedula;
+            //  mySelect.appendChild(createOPTION(depa[i].idarea_emp,depa[i].nom_area));
+            }  
+          
+        });
+      }
+
+      function cargarCargos(Area){      
+        $.get('../back/controller/cargo_empreso/Cargo_empresoList.php',{'area':Area},function(depa){         
+          var mySelect=document.getElementById("Inputcargo_empreso_idcargo");
+          removeAllChildren(mySelect);
+             mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idcargo,depa[i].nom_cargo));
+            }  
+          
+        }); 
+      }
+
+   function cargarContenido(){
+        ciudad = $('select[id=ciudades] option:selected').text();
+        $('#'+miInput).val(ciudad);
+      }
+    </script>
+    
+  <script type="text/javascript">   
+$(function(){
+
+event.preventDefault();
+	$('#contactform').submit(function(event){
+        
+        	$.ajax({
+			type: 'POST',
+			url: $(this).attr('action'),
+			data: $(this).serialize(),
+			success: function(data){
+				//Cuando la interacción sea exitosa, se ejecutará esto.
+			},
+			error: function(data){
+				//Cuando la interacción retorne un error, se ejecutará esto.
+			}
+		})
+    });
+});
+		
+
+</script>
+    
+ 
+    <!-- Pon tus js aquí -->    <!-- jQuery library --> 

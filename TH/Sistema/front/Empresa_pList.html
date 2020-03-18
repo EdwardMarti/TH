@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<!--              -------Creado por-------               -->
+<!--             \(°u° )/ Anarchy \( °u°)/               -->
+<!--              ------------------------               -->
+
+<!--//    Quédate con quien te quiera por tu back-end, no por tu front-end  \\                  -->
+
+
+    <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+    
+
+            <!-- Sweet Alert -->
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+    
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox ">
+                        <div class="ibox-title"> 
+
+                        <div class="ibox-tools">
+
+                            <!--     <button type="button" class="btn btn-primary" data-toggle="modal" 
+                                         data-target="#myModal5" data-backdrop="static" data-keyboard="false">
+                                          + Agregar
+                                      </button>-->
+
+                            <button type="button" class="btn btn-primary" onclick="empresa_Registrar_P()">
+                                + Agregar
+                            </button>
+                         
+
+                        </div>
+                    </div>
+
+                    <div class="ibox-content">
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover dataTables-example" >
+                                <thead>
+                                    <tr>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">idempresa</th>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">nombre_empresa</th>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">nit_empresa</th>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">direccion_empresa</th>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">Telefono_empresa</th>
+                                        <th  style=" color:#FFFFFF; background-color: #616161  !important"><i class="fa fa-edit"></i></th>
+                                      <!--           <th style=" color:#FFFFFF; background-color: #616161  !important"><i class="fa fa-trash"></i></th>-->
+                                  
+                                    </tr>
+                                </thead>
+                                <tbody id="Empresa_pList">
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">idempresa</th>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">nombre_empresa</th>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">nit_empresa</th>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">direccion_empresa</th>
+                                        <th style=" color:#FFFFFF; background-color: #616161  !important">Telefono_empresa</th>
+                          
+                                        <th  style=" color:#FFFFFF; background-color: #616161  !important"><i class="fa fa-edit"></i></th>
+                                     
+                                  
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+                                <div   style="color: black ; text-shadow: 1px 2px #999;" class="modal-dialog">
+                                    <div class="modal-content animated flipInY">
+                                         <form role="form" id="areaform">
+                                       
+                                        <div class="modal-header"> <!---------inicia Header---->
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                            <h4 class="modal-title">Actualizar Empresa</h4>
+                                        </div> <!---------Fin Header  ---->
+                                        
+                                        <div class="modal-body"> <!---------inicia Body---->
+                                            
+                                                    
+                                            <div style="display: none" class="form-group">
+                          <label for="InputidEmpresa_p">idEmpresa_p</label>
+                          <input type="text" name="idEmpresa_p" class="form-control" id="InputidEmpresa_p" placeholder="idEmpresa_p" required>
+                       </div>
+                      <div class="form-group">
+                          <label for="InputEmpresa_p_nombre">Empresa_p_nombre</label>
+                          <input type="text" name="Empresa_p_nombre" class="form-control" id="InputEmpresa_p_nombre" placeholder="Empresa_p_nombre">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputnit_empresa_p">nit_empresa_p</label>
+                          <input type="text" name="nit_empresa_p" class="form-control" id="Inputnit_empresa_p" placeholder="nit_empresa_p">
+                       </div>
+                      <div class="form-group">
+                          <label for="InputEmpresa_p_direccion">Empresa_p_direccion</label>
+                          <input type="text" name="Empresa_p_direccion" class="form-control" id="InputEmpresa_p_direccion" placeholder="Empresa_p_direccion">
+                       </div>
+                      <div class="form-group">
+                          <label for="InputEmpresa_p_tel">Empresa_p_tel</label>
+                          <input type="text" name="Empresa_p_tel" class="form-control" id="InputEmpresa_p_tel" placeholder="Empresa_p_tel">
+                       </div>
+
+                             
+                              
+                                        </div> <!---------Fin Body---->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                          
+                                            <button type="button" class="btn btn-primary" onclick="registrar()">Salvar Cambios</button>
+                                        </div>
+                                        
+                                          </form>
+                                    </div>
+                                </div>
+                            </div>
+
+ <script src="js/plugins/dataTables/datatables.min.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap4.min.js"></script>
+  <script src="js/funciones.js"></script>
+        
+          <!-- Sweet alert -->
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function(){
+            $('.dataTables-example').DataTable({
+                pageLength: 25,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
+
+            });
+
+        });
+
+    </script>
+    
+                                <script>
+            var mimodal = null;
+            function mostrarActualizar(id, nombre,nit,direccion,tel) {
+                var a=''+id;
+                var b=''+nombre;
+                var c=''+nit;
+                var d=''+direccion;
+                var e=''+tel;
+            $("#InputidEmpresa_p").val(a);
+            $("#InputEmpresa_p_nombre").val(b);
+            $("#Inputnit_empresa_p").val(c);
+            $("#InputEmpresa_p_direccion").val(d);
+            $("#InputEmpresa_p_tel").val(e);
+            $('#myModal2').modal({show: true});
+
+             
+            }
+            function mostrarEliminar(id2, nombre2) {
+               // console.log(id);
+                      var a1=''+id2;
+                var b2=''+nombre2;
+                   $("#idArea2").val(a1);
+                $("#InputArea2").val(b2);
+               $('#myModalE').modal({show: true});
+
+             
+               //  alert('elim'+id,nombre);
+            }
+        </script>     
+  
+<script>
+     function registrar(){
+      
+         
+        var url = "../back/controller/empresa_p/Empresa_pInsert_act.php";
+        $.ajax({                        
+           type: "POST",                 
+           url: url,                     
+           data: $("#areaform").serialize(), 
+          
+         
+           success: function(data) 
+         
+           {
+               if(data=='true'){
+                  
+                   aceptar();
+               }
+                          
+           }
+       });
+   
+};
+
+     function aceptar(){
+        $('#myModal2').modal('hide');
+       swal({
+                        title: "Actualizacion",
+                        text: "Actualizacion Exitosa!",
+                        type: "success",
+                       // showCancelButton: true,
+                        confirmButtonColor: "#1ab394",
+                        confirmButtonText: "Ok",
+                       // cancelButtonText: "No, cancel plx!",
+                      //   closeOnConfirm: false,
+                        closeOnCancel: false },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                               empresa_Listar_P();
+                           // swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        } 
+                        else {
+                            swal("Cancelled", "Your imaginary file is safe :)", "error");
+                        }
+                    });
+   
+};
+</script>
+
+
+
+    <!-- That´s all folks! -->
+</html>

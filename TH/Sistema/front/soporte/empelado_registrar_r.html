@@ -1,0 +1,119 @@
+
+<!--//    ¡Vaya! ¡Al fin harás algo mejor que una calculadora!  \\                  -->
+      <div>
+          <div class="panel panel-default">
+              <div align=center class="panel-heading"><h3 class="panel-title">Registrar usuario</h3></div>
+              <div align=center class="panel-body">
+                  <form role="form" id="UsuarioInsert">
+                     
+                      <div class="form-group">
+                          <label for="Inputusuario_nombre">usuario_nombre</label>
+                          <input type="text" name="usuario_nombre" class="form-control" id="Inputusuario_nombre" placeholder="usuario_nombre">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputusuario_correo">usuario_correo</label>
+                          <input type="text" name="usuario_correo" class="form-control" id="Inputusuario_correo" placeholder="usuario_correo">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputus_id_cargo">Empresa</label>
+                          <div id="comboempresas"></div>
+                       </div>
+                      
+                      <div class="form-group">
+                          <label for="Inputus_id_cargo">Area s</label>
+                          <div id="combociudad_1">
+                          <select class="form-control m-b" name="account">
+                                        <option> </option>
+                                   
+                                    </select>
+
+                                
+                              </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="Inputus_id_cargo">cargo</label>
+                          <input type="text" name="us_id_cargo" class="form-control" id="Inputus_id_cargo" placeholder="us_id_cargo">
+                       </div>
+                      
+                      <div class="form-group">
+                          <label for="Inputusuario_pass">usuario_pass</label>
+                          <input type="text" name="usuario_pass" class="form-control" id="Inputusuario_pass" placeholder="usuario_pass">
+                       </div>
+                      
+                    
+                        <a href="javascript:preUsuarioInsert('UsuarioInsert')" class="btn btn-warning">Registrar</a>
+                   </form>
+               </div><!-- panel-body -->
+          </div> <!-- panel -->
+      </div>
+
+ 
+    
+       <script type="text/javascript">
+            $(document).ready(function(){  
+              
+           
+              $.post( "../back/controller/empresa/Empresa_combo_List.php").done(function(data){
+              $('#comboempresas').html(data);
+            });
+           
+                  alert(empresaid_1);
+          $("#empresaid_1").change(function(){
+             
+			$.get("../back/controller/area/AreaList_1_1.php","empresaid_1="+$("#empresaid_1").val(), function(data){
+			$("#combociudad_1").html(data);
+                         
+			});
+		});
+          
+    
+       
+           
+        
+             
+          })
+          ;             
+       </script> 
+    
+<script>
+$(document).ready(function(){
+
+});
+</script>
+       
+
+<script>
+function sacarArea(str) {
+     
+   // console.log(empresaid_1);
+    if (str !=0) {
+          $("#empresaid_1").change(function(){
+             
+			$.get("../back/controller/area/AreaList_1_1.php","empresaid_1="+$("#empresaid_1").val(), function(data){
+			$("#combociudad_1").html(data);
+                         
+			});
+		});
+          
+    } else{
+     
+    
+   alert('debe seleccionar un departamento');
+        }
+       
+}
+</script>
+
+<script>
+function cargarciudad(ciudad,valorcampo) {
+    console.log(ciudad,valorcampo);
+    
+
+alert(ciudad,valorcampo);
+contenido = document.createTextNode(valorcampo);
+inp = document.getElementById("name_ciudad");
+inp.setAttribute("value",inp);
+
+
+}
+</script>

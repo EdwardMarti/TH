@@ -1,0 +1,1391 @@
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+    <div class="ibox ">
+        <div style="text-align: center; color: black" class="ibox-title">
+            <h1><b>Registrar Empleado</b></h1>
+        </div>
+        
+                        <div class="ibox-content">
+                       <div class="tabs-container" style="color: black">
+                 <ul class="nav nav-tabs" role="tablist">
+                     <li><a class="nav-link active" id="1"  href="#tab-1" onclick="cambiarTab('tab-1')">DATOS PERSONALES</a></li>
+                     <li><a class="nav-link " id="2" href="#tab-2" onclick="cambiarTab('tab-2')">DATOS ADICIONALES</a></li>
+                     <li><a class="nav-link " id="3" href="#tab-3" onclick="cambiarTab('tab-3')">DATOS FAMILIARES</a></li>
+                     <li><a class="nav-link " id="4" href="#tab-4" onclick="cambiarTab('tab-4')">EXAMENES DE INGRESO</a></li>
+                     <li><a class="nav-link " id="5" href="#tab-5" onclick="cambiarTab('tab-5')">ESTUDIOS</a></li>
+                     <li><a class="nav-link " id="6" href="#tab-6" onclick="cambiarTab('tab-6')">SEGURIDAD SOCIAL</a></li>
+                     <li><a class="nav-link " id="7" href="#tab-7" onclick="cambiarTab('tab-7')">COOPERATIVISMO</a></li>
+                     <li><a class="nav-link " id="8" href="#tab-8" onclick="cambiarTab('tab-8')">EMPRESA</a></li>
+                  
+                   
+                 </ul>
+                 <div class="tab-content">
+                     <div role="tabpanel" id="tab-1" class="tab-pane active">
+                         <div class="panel-body">
+                             <div class="text-left m-t-md">
+              
+                    <form   role="form" id="PersonaInsert"> 
+                     
+                                <div class="row">
+ 
+                            <div class="col-lg-4">
+                            <div class="form-group">
+                                    <label for="Inputcedula">Cedula</label>
+                                    <input type="text" name="cedula" class="form-control" id="Inputcedula" placeholder="cedula" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Inputnombres">Nombres</label>
+                                    <input value="212542121" type="text" name="nombres" class="form-control" id="Inputnombres" placeholder="nombres" >
+                                </div> 
+                                <div class="form-group">
+                                    <label for="InputfechaNacimiento">fecha de Nacimiento</label>
+                                    <input type="date" name="fechaNacimiento" class="form-control" id="InputfechaNacimiento" placeholder="fechaNacimiento">
+                                </div>
+                                   <div class="form-group">
+                                    <label for="Inputgrupo_sanguineo">Grupo Sanguineo</label>
+                                    <select name="grupo_sanguineo" class="form-control" id="Inputgrupo_sanguineo">
+                                          <option value="-1">SELECCIONE</option>
+                                    </select> 
+                                </div>
+                                   <div class="form-group">
+                                    <label for="Inputnivel_vigilancia_id_p">Nivel de Vigilancia</label>
+                                    <select name="nivel_vigilancia_id_p" class="form-control" id="Inputnivel_vigilancia_id_p">
+                                            <option value="-1">SELECCIONE</option>
+                                    </select>                              
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-lg-4">
+                            <div class="form-group">
+                                    <label for="Inputnacionalidad">Nacionalidad</label>                            
+                                    <select name="nacionalidad" class="form-control" id="Inputnacionalidad">
+                                            <option value="-1">SELECCIONE</option>
+                                        <option value="1">COL</option>
+                                        <option value="2">VEN</option>
+                                        <option value="3">PASAPORTE</option>
+                                    </select>
+                                </div>
+                                   <div class="form-group">
+                                    <label for="Inputapellidos">Apellidos</label>
+                                    <input value="212542121" type="text" name="apellidos" class="form-control" id="Inputapellidos" placeholder="apellidos">
+                                </div>
+                                
+                                  <div class="form-group">
+                                    <label for="Inputlugar_nacimiento">Lugar de Nacimiento</label>
+                                    <input  value="212542121" type="text" name="lugar_nacimiento" class="form-control" id="Inputlugar_nacimiento" placeholder="lugar_nacimiento"  onclick="cargarDepartamentos('Inputlugar_nacimiento');">
+                                </div>
+                                   <div class="form-group">
+                                    <label for="Inputestado_civil">Estado Civil</label>
+                                    <select name="estado_civil" class="form-control" id="Inputestado_civil">
+                                            <option value="-1">SELECCIONE</option>
+                                    </select> 
+                                </div>
+                                   <div class="form-group">
+                                    <label for="Inputtipo_vigilancia_id">Tipo de Vigilancia</label>
+                                    <select name="tipo_vigilancia_id" class="form-control" id="Inputtipo_vigilancia_id">                
+                                       <option value="-1">SELECCIONE</option>
+                                    </select>   
+                                                                
+                                </div>
+                            </div>
+
+                            
+                            
+                            
+                            <div class="col-lg-4">
+                              <div class="form-group">
+                                    <label for="Inputcedula_lugar_expedicion">Lugar de Expedicion</label>
+                                    <input type="text" name="cedula_lugar_expedicion" class="form-control" id="Inputcedula_lugar_expedicion" placeholder="cedula_lugar_expedicion" 
+                                           onclick="cargarDepartamentos('Inputcedula_lugar_expedicion');">
+                                </div>
+                                                                <div class="form-group">
+                                    <label for="Inputsexo">sexo</label>
+                                    <select name="sexo" class="form-control" id="Inputsexo">
+    <option value="-1">SELECCIONE</option>
+                                    </select>                              
+                                </div>
+                                  <div class="form-group">
+                                    <label for="Inputlibreta">libreta</label>
+                                    <input  value="NO" type="text" name="libreta" class="form-control" id="Inputlibreta" placeholder="libreta"  >
+                                </div>
+                                 <div class="form-group">
+                                    <label for="Inputcorreo">Correo</label>
+                                    <input  value="212542121" type="text" name="correo" class="form-control" id="Inputcorreo" placeholder="correo">
+                                </div>
+                            </div>
+                        </div>
+                            
+                 
+                        
+                    
+                    </form>
+               
+            </div>
+                             
+                             
+                               </div>
+                         
+                            </div>
+                            <div role="tabpanel" id="tab-2" class="tab-pane">
+                                    <div class="panel-body">
+                              
+  <div class="text-left m-t-md">
+                <form   role="form" id="CelularInsert">
+                      <div class="form-group">
+                          <input type="hidden" name="id" class="form-control" id="Inputid" placeholder="id" >
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputnumero">Numeros de Telefono </label>
+                          <input type="text"  value="212542121"  name="numero" class="form-control" id="Inputnumero" placeholder="numero">
+                       </div>
+                </form>
+                <form   role="form" id="DomicilioInsert">
+                      <div class="form-group">
+                          <input type="hidden" name="id" class="form-control" id="Inputid" placeholder="id" >
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputdireccion">Direccion de la Casa</label>
+                          <input  value="212542121" type="text" name="direccion" class="form-control" id="Inputdireccion" placeholder="direccion">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputbarrio">Barrio</label>
+                          <input type="text" name="barrio" class="form-control" id="Inputbarrio" placeholder="barrio" onclick="cargarModalBarrios('Inputbarrio');">
+                       </div>
+                      <div class="form-group">  
+                          <input type="hidden" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="persona_id">
+                       </div>                       
+                    </form> 
+            </div>
+                                </div>
+                               
+                            </div>
+                            
+                            <div role="tabpanel" id="tab-3" class="tab-pane">
+                             <div class="panel-body"> <div class="text-left m-t-md">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <div class="text-right m-t-md">
+                               
+                            <button type="button" class="btn btn-info" onclick="agregarFamiliar();">Registrar</button>
+                            <!-- <button type="button" class="btn btn-info" onclick="getFamiliares();">Retirar Boton</button>-->
+
+                        </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="ibox ">                
+                    <div class="ibox-content">
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                  <th style="visibility: hidden">Id</th>
+                                  <th  style="background-color: #ffca2e">#</th>
+                                  <th  style="background-color: #ffca2e">Nombre y apellido</th>
+                                  <th  style="background-color: #ffca2e"># Celular</th>
+                                  <th  style="background-color: #ffca2e">Parentesco</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpoFamiliar">
+                           </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                                    
+                                    </div>
+                            </div>
+                            
+                   
+                            
+                            <!------------inicio nuvo estudios tab ------->
+                            
+                            <div role="tabpanel" id="tab-4" class="tab-pane">
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <div class="panel-body">
+                                 <div class="text-left m-t-md">
+                <form   role="form" id="Fechas_particularesInsert">
+                      <div class="form-group">
+                          <label for="Inputestudio_seguridad">estudio_seguridad</label>
+                          <input  value="212542121" type="date" name="estudio_seguridad" class="form-control" id="Inputestudio_seguridad" placeholder="estudio_seguridad">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputexamen_medico">examen_medico</label>
+                          <input type="date" name="examen_medico" class="form-control" id="Inputexamen_medico" placeholder="examen_medico">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputprueba_psicotecnica">prueba_psicotecnica</label>
+                          <input  type="date" name="prueba_psicotecnica" class="form-control" id="Inputprueba_psicotecnica" placeholder="prueba_psicotecnica">
+                       </div>
+                      <div class="form-group">
+                          <input type="hidden" name="id" class="form-control" id="Inputid" placeholder="id" >
+                       </div>
+                      <div class="form-group">
+                          <input type="hidden" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="persona_id">
+                       </div>                  
+                  </form> 
+
+            </div>
+  
+                                </div>
+                            </div>
+                            
+                            
+                            <!------------inicio nuvo tab estudios------->
+                            
+                            <div role="tabpanel" id="tab-5" class="tab-pane">
+                                
+                                      <div class="panel-body">
+                        <div class="text-left m-t-md">
+                <form   role="form" id="Varios_empresaInsert">
+                    
+                     <div class="row">
+                 
+                            <div class="col-lg-4">
+
+                                   <div class="form-group">
+                          <label for="Inputcnsc">cnsc</label>
+                          <input  value="212542121" type="text" name="cnsc" class="form-control" id="Inputcnsc" placeholder="cnsc">
+                       </div>
+                  
+                               <div class="form-group">
+                          <label for="Inputpsicofisico">psicofisico</label>
+                          <input  value="212542121" type="text" name="psicofisico" class="form-control" id="Inputpsicofisico" placeholder="psicofisico">
+                       </div>       
+                                
+                                
+                                
+                      <div class="form-group">
+                          <label for="Inputfecha_acre_super">fecha_acre_super</label>
+                          <input type="date" name="fecha_acre_super" class="form-control" id="Inputfecha_acre_super" placeholder="fecha_acre_super">
+                       </div>
+                       
+                            </div>
+                            <div class="col-lg-4">
+
+                                <div class="form-group">
+                          <label for="Inputacta_consejo">acta_consejo</label>
+                          <input type="text" name="acta_consejo" class="form-control" id="Inputacta_consejo" placeholder="acta_consejo">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputfecha_aceptacion">fecha_aceptacion</label>
+                          <input type="date" name="fecha_aceptacion" class="form-control" id="Inputfecha_aceptacion" placeholder="fecha_aceptacion">
+                       </div>
+                                
+                                
+                                     <div class="form-group">
+                          <label for="Inputnit_escuela">Nit Escuels Curso de Vigilancia</label>
+                          <input  value="212542121" type="text" name="nit_escuela" class="form-control" id="Inputnit_escuela" placeholder="nit_escuela">
+                       </div>
+                
+                       
+                            </div>
+                            <div class="col-lg-4">
+
+                                  <div class="form-group">
+                          <label for="Inputfecha_examen_psicofisico">fecha_examen_psicofisico</label>
+                          <input type="date" name="fecha_examen_psicofisico" class="form-control" id="Inputfecha_examen_psicofisico" placeholder="fecha_examen_psicofisico">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputcarnet_supervigilancia_idcarne">carnet_supervigilancia_idcarne</label>
+                          <select name="carnet_supervigilancia_idcarne" class="form-control" id="Inputcarnet_supervigilancia_idcarne">
+                                <option value="-1">SELECCIONE</option>
+                          </select>
+                       </div>
+                       
+                            </div>
+                        </div>
+                    
+                                       
+                   </form>
+                           
+                                                <form   role="form" id="EstudioInsert">
+                                    <div class="row">
+                                              
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="Inputnivel_vigilancia">Curso de vigilancia </label>
+                                            <select  name="nivel_vigilancia" class="form-control" id="Inputnivel_vigilancia">
+                                                <option value="-1">SELECCIONE</option>
+                                            </select>
+                                        </div>
+                                    </div>                 
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="Inputfecha_curso">Fecha Curso de vigilancia</label>
+                                            <input  type="date" name="fecha_curso" class="form-control" id="Inputfecha_curso" placeholder="fecha_curso">
+                                        </div>
+                                    </div>   
+                                              <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="Inputnivel_academico">nivel_academico</label>
+                                            <select  name="nivel_academico" class="form-control" id="Inputnivel_academico">
+                                                <option value="-1">SELECCIONE</option>
+                                            </select>
+                                        </div>
+                                    </div> 
+</div>
+                                </form>  
+                            
+            </div>         
+  
+                                </div>
+                                
+                                 
+                         
+
+                            </div>
+                            
+                            
+                            <!------------inicio nuvo tab salud pension Banco ------->
+                            
+                            <div role="tabpanel" id="tab-6" class="tab-pane">
+                                <div class="panel-body">
+                                 <div class="text-left m-t-md">
+                 <form   role="form" id="Salud_pensionInsert">
+                      <div class="form-group">
+                          <input type="hidden" name="id" class="form-control" id="Inputid" placeholder="id" >
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputsalud">salud</label>
+                          <select name="salud" class="form-control" id="Inputsalud">   
+                                  <option value="-1">SELECCIONE</option>
+                          </select>
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputpension">pension</label>
+                          <select name="pension" class="form-control" id="Inputpension">
+                                <option value="-1">SELECCIONE</option>
+                          </select>
+                       </div>
+                      <div class="form-group">
+                          <input type="hidden" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="persona_id">
+                      </div>                        
+                  </form> 
+                                     
+                  <form   role="form" id="BancoInsert">
+                        <div class="form-group">                          
+                          <input type="hidden" name="idbanco" class="form-control" id="Inputidbanco" placeholder="idbanco">
+                        </div>
+                        <div class="form-group">
+                            <label for="Inputbanco_nombre">banco_nombre</label>
+                            <select name="banco_nombre" class="form-control" id="Inputbanco_nombre">
+                                  <option value="-1">SELECCIONE</option>
+                            </select>
+                         </div>
+                        <div class="form-group">
+                            <label for="Inputnumero_cuenta">numero_cuenta</label>
+                            <input type="text" name="numero_cuenta" class="form-control" id="Inputnumero_cuenta" placeholder="numero_cuenta">
+                         </div>
+                        <div class="form-group">                            
+                            <input type="hidden" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="persona_id">
+                         </div>
+                   </form> 
+            </div>
+  
+                                </div>
+                            </div>
+                            
+                            
+                            <!------------inicio nuvo tab coopertaivismo------->
+                            
+                            <div role="tabpanel" id="tab-7" class="tab-pane">
+                                <div class="panel-body">
+                                   <div class="text-left m-t-md">
+                <form   role="form" id="CooperativismoInsert">
+                      <div class="form-group">
+                          <input type="hidden" name="idcooperativismo" class="form-control" id="Inputidcooperativismo" placeholder="idcooperativismo" >
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputcoop_nombre">Cooperativismo_nombre</label>
+                          <input type="text" name="coop_nombre" class="form-control" id="Inputcoop_nombre" placeholder="coop_nombre">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputcoop_fecha">Cooperativismo_fecha</label>
+                          <input type="date" name="coop_fecha" class="form-control" id="Inputcoop_fecha" placeholder="coop_fecha">
+                       </div>
+                      <div class="form-group">
+                          <label for="Inputcoop_nit">Cooperativismo_nit</label>
+                          <input type="text" name="coop_nit" class="form-control" id="Inputcoop_nit" placeholder="coop_nit">
+                       </div>
+                      <div class="form-group">
+                          <input type="hidden" name="persona_id" class="form-control" id="Inputpersona_id" placeholder="persona_id">
+                       </div>
+                   </form>
+            </div>
+  
+                                </div>
+                            </div>
+                            
+                            
+                            <!------------inicio nuvo tab  varios------->
+                            
+                            <div role="tabpanel" id="tab-8" class="tab-pane">
+                                <div class="panel-body">
+                                    <div class="text-left m-t-md">     
+      <form   role="form" id="CargoInsert" >
+          
+            <div class="form-group">
+                <input type="hidden" name="id" class="form-control" id="Inputid" placeholder="id" >
+             </div>
+            <div class="form-group">
+                <input type="hidden" name="fecha_ingreso" class="form-control" id="Inputfecha_ingreso" placeholder="fecha_ingreso">
+             </div>
+            <div class="form-group">
+                <label for="Inputempresa_idempresa">empresa_idempresa</label>
+                <select name="empresa_idempresa" class="form-control" id="Inputempresa_idempresa" onchange="cargarAreas(this.value);">
+                                  <option value="-1">SELECCIONE</option>  
+                </select> 
+             </div>
+            <div class="form-group">
+                <label for="Inputarea_empresa_idarea_emp">area_empresa_idarea_emp</label>
+                <select name="area_empresa_idarea_emp" class="form-control" id="Inputarea_empresa_idarea_emp" onchange="cargarCargos(this.value);">
+    <option value="-1">SELECCIONE</option>
+                </select>
+             </div>
+            <div class="form-group">
+                <label for="Inputcargo_empreso_idcargo">cargo_empreso_idcargo</label>
+                <select name="cargo_empreso_idcargo" class="form-control" id="Inputcargo_empreso_idcargo">
+                                <option value="-1">SELECCIONE</option>                   
+                </select>
+             </div>
+            <div class="form-group">
+                <input type="text" name="puesto_idpuesto" class="form-control" value="1" id="Inputpuesto_idpuesto" placeholder="puesto_idpuesto">
+             </div>  
+            
+          </form>
+                                    </div>  
+                                </div>
+                            </div>
+                            
+                            
+                            <!------------inicio nuvo tab empresa------->
+                            
+                    
+                            
+                            
+                            <!------------inicio nuvo tab ------->
+                            
+                       
+                            
+                 
+                            
+                        </div>
+ <div style="overflow:auto;">
+    <div style="float:right;">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    </div>
+  </div>                    
+            
+
+                    </div>
+                        </div>
+                    </div>
+   
+    
+           
+    
+
+
+<!-- Modal de Expedicion -->
+<div class="modal fade" id="expedicionModal"  style="color: black" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modales title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+
+              
+              
+              
+              
+              <div class="col-lg-6">
+        <div class="form-group">
+                            
+                          
+                            <select id="departamentos"  class="form-control"  onchange="cargarCiudades(this.value);">
+          <option value="-1">Seleccionar</option>
+        </select>
+                         </div>  
+              </div>
+             
+              <div class="col-lg-6">
+                  <div class="form-group">
+ <select id="ciudades"  class="form-control"  onchange="cargarContenido();">
+          <option value="-1">Seleccionar</option>
+        </select>
+              </div>
+</div>
+          </div>
+       
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE BARRIOS -->
+<div class="modal fade" style="color: black"  id="barriosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <form role="form" id="BarrioInsert">
+             <div class="row">
+
+                 <div class="col-lg-6">
+                           <div class="form-group">
+              <label for="Inputciudad_idciudad">ciudad_idciudad</label>
+              <select name="ciudad_idciudad" class="form-control" id="Inputciudad_idciudad" onchange="cargarBarrios(this.value);">
+                <option>SELECCIONE</option>
+                <option value="832">cucuta</option>
+                <option value="846">zulia</option>
+                <option value="853">patios</option>
+                <option value="871">Villa del Rosario</option>
+                <option value="1374">urena</option>
+                <option value="1357">San Antonio</option>
+              </select>
+          </div> 
+                 </div>
+                
+                 <div class="col-lg-6">
+                      <div class="form-group">
+              <label for="Inputidbarrio">idbarrio</label>
+               <select name="idbarrio" class="form-control" id="Inputidbarrio" onchange="setBarrios(this.value);">
+              </select>
+           </div> 
+                 </div>
+                 </div>
+      
+    
+                             
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE FAMILIARES -->
+
+<div  style="color: #000000" class="modal fade" id="familiaresModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Familiares</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+ <form id="familiaressss"> 
+                <div class="modal-body">
+                    <div class="step-content">
+                        <div class="text-left m-t-md">                            
+                            <div class="row">
+                                  <div class="col-lg-12">
+                              <div class="form-group">
+                            <input type="hidden" id="IdFamiliarModal" value="-1" />
+                                   
+                                        <label>Nombre y apellido</label>
+                                        <input class="form-control" type="text" id="nombreParen"/>
+                                    </div> 
+                                </div>
+                                </div>
+                            <div class="row">
+                             <div class="col-lg-6">
+                               <div class="form-group">
+                                  
+                                   
+                                        <label >Celular</label>
+                                        <input class="form-control" type="text" id="celularParen"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label style="color: #000000">Parentesco</label>
+                                        <select class="form-control" name="Parentesco" id="tipoParen">
+                                            
+                                        </select>
+                                    </div>
+                                </div> 
+                               
+                                
+                         </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="cuerpoFamiliar()">Agregar</button>
+                </div>
+            </form>
+      </div>
+   
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE FAMILIARES -->
+
+<div  style="color: #000000" class="modal fade" id="familiaresEdicionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Familiares</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+ <form id="familiaressss"> 
+                <div class="modal-body">
+                    <div class="step-content">
+                        <div class="text-left m-t-md">                            
+                            <div class="row">
+                                  <div class="col-lg-12">
+                              <div class="form-group">
+                            <input type="hidden" id="IdFamiliarModalEdicion" value="-1" />
+                                   
+                                        <label>Nombre y apellido</label>
+                                        <input class="form-control" type="text" id="nombreParenEdicion"/>
+                                    </div> 
+                                </div>
+                                </div>
+                            <div class="row">
+                             <div class="col-lg-6">
+                               <div class="form-group">
+                                  
+                                   
+                                        <label >Celular</label>
+                                        <input class="form-control" type="text" id="celularParenEdicion"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label style="color: #000000">Parentesco</label>
+                                        <select class="form-control" name="Parentesco" id="tipoParenEdicion">
+                                            
+                                        </select>
+                                    </div>
+                                </div> 
+                               
+                                
+                         </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="guardarCambios()">GuardarCambios</button>
+                    <button type="button" style="" class="btn btn-primary" onclick="eliminarFamiliar()">Eliminar</button>
+                </div>
+            </form>
+      </div>
+   
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="js/plugins/steps/jquery.steps.min.js"></script>
+<!-- Jquery Validate -->
+<script src="js/plugins/validate/jquery.validate.min.js"></script>
+<script src="js/Ajax.js "></script>
+<script src="js/ViewManager.js "></script>
+<script src="js/HtmlBuilder.js "></script>
+<script type="text/javascript" src="js/constructorSelect.js"></script>
+
+    <!-- Sweet alert -->
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+
+
+<script>
+    
+    var currentTab = 0; // Current tab is set to be the first tab (0)
+   //showTab(currentTab); // Display the current tab
+
+    
+var n = 1;
+showTab(n);
+
+function cambiarTab(id) {
+   
+    ocultar();
+    document.getElementById(id).style.display = "block";
+    
+    var pizza =id;
+var porciones = pizza.split('-');
+
+
+  StepIndicator(porciones[1]);
+
+}
+
+function ocultar() {
+    document.getElementById("tab-1").style.display = "none";
+    document.getElementById("tab-2").style.display = "none";
+    document.getElementById("tab-3").style.display = "none";
+    document.getElementById("tab-4").style.display = "none";
+    document.getElementById("tab-5").style.display = "none";
+    document.getElementById("tab-6").style.display = "none";
+    document.getElementById("tab-7").style.display = "none";
+    document.getElementById("tab-8").style.display = "none";
+
+   
+}
+
+function nextPrev(id) {
+    
+     n=n+id;
+    // console.log('yooo'+n);
+    id1=n;
+     
+ id11='tab-'+id1;
+   if(n==9){
+    // alert('registrar');
+     registrarTodo();
+    
+  }if(n<9){
+     
+   cambiarTab(id11);
+  showTab(n);
+  StepIndicator(n);
+
+  }
+ 
+   // This function will figure out which tab to display
+ 
+ 
+ 
+ 
+// console.log(id11);
+
+//continuar(id11);
+}
+
+
+function StepIndicator(n) { //INDICA LA PESTAÑA EN LA Q VA
+  // This function removes the "active" class of all steps...
+  var i,x = document.getElementsByClassName("nav-link");
+ 
+  
+
+  for (i = 0; i < x.length; i++) {
+   x[i].className = x[i].className.replace("nav-link", "");
+  
+  }
+  
+$("#"+n).removeAttr("class");
+$("#"+n).addClass("nav-link active show");
+  
+  }
+  
+  function validarFormulario(idFormulario){
+    var form = $("#"+idFormulario);
+    return form.valid();
+  }
+
+function showTab(n) { //MUESTRA EL NOMBRE EN LE BOTON
+    x=9;
+  // This function will display the specified tab of the form...
+ // var x = document.getElementsByClassName("tab");
+ // x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 1) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+    
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  
+  //  console.log(validarFormulario("PersonaInsert"));
+  }
+  //... and run a function that will display the correct step indicator:
+ // fixStepIndicator(n)
+}
+
+
+
+</script>  
+
+
+
+
+
+
+
+ <script type="text/javascript">
+
+//-----------------------------------------------------------------------------------------------
+
+
+      $(document).ready(function() {
+        cargarSelects();
+        cargarEmpresas('Inputempresa_idempresa');
+          
+        agregarFamiliar2();
+      });
+      
+      function cargarExcel(){
+          $.post('../back/controller/todo/lector.php',function(data){
+            $("#ee").html(data);
+        });
+      }
+
+      function cargarMisnombres(){
+          $.post('../back/controller/todo/datos.php',function(data){
+         console.log("*******************************************los datos que sube el sistema ************************************************");    
+        console.log(data);
+        });
+      }
+
+      function agregarFamiliar(){
+         $.get('../../../generales/back/controller/tipo_familiar/Tipo_familiarList.php',function(depa){
+          var mySelect=document.getElementById("tipoParen");
+          removeAllChildren(mySelect);
+         mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idtipo_familiar+'-'+depa[i].tipo_familiar_descripcion,depa[i].tipo_familiar_descripcion));
+            }  
+        });
+          $('#familiaresModal').modal(); 
+      }
+
+       function agregarFamiliar2(){
+         $.get('../../../generales/back/controller/tipo_familiar/Tipo_familiarList.php',function(depa){
+          var mySelect=document.getElementById("tipoParenEdicion");
+          removeAllChildren(mySelect);
+         mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idtipo_familiar+'-'+depa[i].tipo_familiar_descripcion,depa[i].tipo_familiar_descripcion));
+            }  
+        });
+      }
+
+      var numFamiliares = 0;
+      function cuerpoFamiliar(){
+        numFamiliares++;
+        tr = document.createElement("tr");
+        tr.setAttribute("id", "fila_"+numFamiliares);
+        tr.setAttribute("onclick", "editarFila("+"'fila_"+numFamiliares+"');");
+        
+        ele = [
+          $('#IdFamiliarModal').val(),
+          numFamiliares,
+          $('#nombreParen').val(),
+          $('#celularParen').val(),
+          $('#tipoParen').val()
+          ]
+          document.getElementById("familiaressss").reset();
+          document.getElementById("cuerpoFamiliar").appendChild(llenarTR(tr,ele));
+      }
+
+      var IdFILA = 0;
+      function editarFila(idFila){
+        IdFILA = idFila;
+        llenarFormulario(idFila);
+        $('#familiaresEdicionModal').modal();     
+      }
+
+      function llenarFormulario(idFila){
+        colm0 = $('#'+idFila+"colm_0").text();
+        colm2 = $('#'+idFila+"colm_2").text();
+        colm3 = $('#'+idFila+"colm_3").text();
+        colm4 = $('#'+idFila+"colm_4").text();
+        $('#IdFamiliarModalEdicion').val(colm0);
+        $('#nombreParenEdicion').val(colm2);
+        $('#celularParenEdicion').val(colm3);
+        $('#tipoParenEdicion').val(colm4);
+      }
+   function guardarCambios(){
+    $('#'+IdFILA+"colm_0").text($('#IdFamiliarModalEdicion').val());
+    $('#'+IdFILA+"colm_2").text($('#nombreParenEdicion').val());
+    $('#'+IdFILA+"colm_3").text($('#celularParenEdicion').val());
+    $('#'+IdFILA+"colm_4").text($('#tipoParenEdicion').val());
+    $('#familiaresEdicionModal').modal('toggle');
+   }
+   function eliminarFamiliar(){
+      $('#'+IdFILA).remove();
+       numFamiliares--;
+   }
+
+      function llenarTR(tr,ele) {
+        for (var i = 0; i < ele.length; i++) {
+          td = document.createElement("td");
+          td.setAttribute("id",tr.getAttribute("id")+"colm_"+i);
+          if(i == 0){            
+            td.setAttribute("style", "visibility: hidden");
+          }
+          text = document.createTextNode(ele[i]);
+          td.appendChild(text);
+          tr.appendChild(td);
+        }
+        return tr;
+      }
+     
+     function getFamiliares(){
+      fam = $('#cuerpoFamiliar').children('tr');
+      arr = {};
+      for (var i = 0; i < fam.length; i++) {
+        ind = i + 1;
+        arr["f"+ind] = filtrarTR(fam[i]);
+      }
+      return arr;
+     }
+
+     function filtrarTR(tr) {
+        hij = $(tr).children('td');
+        res = {};
+        res['nombre'] = $(hij[1]).text();
+        res['celular'] = $(hij[2]).text();
+        res['parentesco'] = $(hij[3]).text();
+        return res; 
+     }
+//------------------------------------------------------------------------------------------------
+
+      
+function registrarTodo(){ 
+   
+  persona= $('#PersonaInsert').serializeArray();
+  direccion=$('#DomicilioInsert').serializeArray();
+  banco=$('#BancoInsert').serializeArray(); 
+  fechas=$('#Fechas_particularesInsert').serializeArray();       
+  familiares = getFamiliares();
+  estudio=$('#EstudioInsert').serializeArray();
+  cooperativismo=$('#CooperativismoInsert').serializeArray();
+  varios=$('#Varios_empresaInsert').serializeArray();
+  salud=$('#Salud_pensionInsert').serializeArray();
+  cargo = $('#CargoInsert').serializeArray();
+  celular = $('#CelularInsert').serializeArray();  
+  var todo = {
+      'entidades':{
+          'persona': persona,
+          'direccion':direccion,
+          'banco':banco,
+          'fechas':fechas,
+          'estudio':estudio,
+          'cooperativismo':cooperativismo,
+          'varios':varios,
+          'salud':salud,
+          'cargo':cargo,
+          'celular':celular,
+          'familiares':familiares
+      }
+  };       
+  t = JSON.parse(JSON.stringify(todo));
+ $.post('../back/controller/todo/registrar.php',t,function(data){ 
+     
+     var objeto_json = JSON.parse(data);
+     
+//depa = JSON.parse(data);
+ console.log(objeto_json);
+ console.log(objeto_json[0].msg);
+  // y = depa[1].msg;
+if(objeto_json[0].msg=='true'){
+    
+    aceptarPersona();
+    
+}if(objeto_json[0].msg=='error1'){
+     errorPersona();
+}
+
+   
+});
+
+
+
+
+}
+
+
+
+ function actualizar_Persona(){
+      
+         
+        var url = "../back/controller/cargo_empreso/Cargo_empresoInsert_actualizar.php";
+   
+        $.ajax({                        
+           type: "POST",                 
+           url: url,                     
+           data: $("#areaformAct").serialize(), 
+          
+         
+           success: function(data) 
+         
+           {
+               if(data=='true'){
+                 aceptarCargo();
+               }
+                          
+           }
+       });
+   
+};
+
+     function aceptarPersona(){
+     $('#myModalcargo').modal('hide');
+       swal({
+                        title: "Registro",
+                        text: "Registro Exitoso!",
+                        type: "success",
+                       // showCancelButton: true,
+                        confirmButtonColor: "#1ab394",
+                        confirmButtonText: "Ok",
+                       // cancelButtonText: "No, cancel plx!",
+                      //   closeOnConfirm: false,
+                        closeOnCancel: false },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                         
+                         empleado_Listar2();
+                             //  cargo_Listar_2(mySelect);
+                           // swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        } 
+                        else {
+                            swal("Cancelled", "Your imaginary file is safe :)", "error");
+                        }
+                    });
+   
+};
+     function errorPersona(){
+    // $('#myModalcargo').modal('hide');
+       swal({
+                        title: "Cancelled",
+                        text: "Cedula ya Registrada!",
+                        type: "error",
+                       // showCancelButton: true,
+                        confirmButtonColor: "#1ab394",
+                        confirmButtonText: "Ok",
+                       // cancelButtonText: "No, cancel plx!",
+                      //   closeOnConfirm: false,
+                        closeOnCancel: false },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                         
+                         empleado_Listar2();
+                             //  cargo_Listar_2(mySelect);
+                           // swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        } 
+                        else {
+                            swal("Cancelled", "Your imaginary file is safe :)", "error");
+                        }
+                    });
+   
+};
+
+
+
+
+
+      function cargarPersona(idp) {
+        //'persona'
+        getDatos('PersonaInsert','persona',idp);
+        //'direccion':
+       /* setDatos('DomicilioInsert',getDatos('direccion,',idp));
+        //'banco':
+        setDatos('BancoInsert',getDatos('banco,',idp));
+        //'fechas':
+        setDatos('Fechas_particularesInsert',getDatos('fechas,',idp));
+        //'estudio':
+        setDatos('EstudioInsert',getDatos('estudio,',idp));
+        //'cooperativismo':
+        setDatos('CooperativismoInsert',getDatos('cooperativismo,',idp));
+        //'varios':
+        setDatos('Varios_empresaInsert',getDatos('varios,',idp));
+        //'salud':
+        setDatos('Salud_pensionInsert',getDatos('salud,',idp));
+        //'cargo':
+        setDatos('CargoInsert',getDatos('cargo,',idp));
+        //'celular':
+        setDatos('CelularInsert',getDatos('celular,',idp));
+        //'familiares':getDatos('familiares',idp);*/
+      }
+
+      function getDatos(form, entidad,idPersona){
+        f = "";
+        $.post('../back/controller/'+entidad+'/'+entidad.charAt(0).toUpperCase()+entidad.slice(1)+'ListXID.php',
+              {'idPersona':idPersona},function(data){
+                setDatos(form,JSON.parse(data)[1]);               
+              }
+            );    
+      }
+
+      function setDatos(idFormulario,datos){       
+        keys = Object.keys(datos);
+        for (var i = keys.length - 1; i >= 0; i--) {
+          $('#Input'+keys[i]).val(datos[keys[i]]);
+        }
+  
+      }
+
+
+
+      var miInput;
+
+      function cargarDepartamentos(idInput){
+        miInput = idInput;
+        $.get('../../../generales/back/controller/departamento/DepartamentoList.php',function(depa){
+          var mySelect=document.getElementById("departamentos");
+          removeAllChildren(mySelect);
+         mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].iddepartamento,depa[i].departamento_descripcion));
+            }  
+        });
+        $('#expedicionModal').modal();        
+      }
+
+      function cargarCiudades(departamento){
+        $.get('../../../generales/back/controller/ciudad/CiudadList.php',{'depa':departamento},function(depa){
+          var mySelect=document.getElementById("ciudades");
+          removeAllChildren(mySelect);
+         mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idciudad,depa[i].ciudad_descripcion));
+            }  
+          
+        });
+      }
+
+      function cargarContenido(){
+        ciudad = $('select[id=ciudades] option:selected').text();
+        $('#'+miInput).val(ciudad);
+      }
+      
+      function cargarContenidoEmpresa(){
+        ciudad_1 = $('select[id=emp_modal] option:selected').text();
+        $('#'+miInput).val(ciudad_1);
+      }
+//--------------------------------------------------------------------
+      var miInputBarrio;
+     
+
+      function cargarModalBarrios(idInput){
+        miInputBarrio = idInput;
+        $('#barriosModal').modal();  
+      }
+
+      function cargarBarrios(idCiudad){
+        $.get('../../../generales/back/controller/barrio/BarrioList.php',{'ciudad':idCiudad},function(depa){
+          var mySelect=document.getElementById("Inputidbarrio");
+          removeAllChildren(mySelect);
+         mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idbarrio,depa[i].barrioco_nombre));
+            }  
+          
+        });
+      }
+
+      function setBarrios(idbarrio){
+        ciudad = $('select[id=Inputidbarrio] option:selected').text();
+        $('#'+miInputBarrio).val(ciudad);
+         document.getElementById("InputBarrio");
+      }
+      
+   
+
+
+//---------------------------------------------------------------------
+   var miInputcargo_id;
+  
+   function cargarEmpresas(idInput){   
+        miInputcargo_id = idInput;
+        
+        $.get('../back/controller/empresa/EmpresaList.php',function(depa){
+          var mySelect=document.getElementById("Inputempresa_idempresa");
+          removeAllChildren(mySelect);
+          mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idempresa,depa[i].nombre_empresa));
+            }  
+          
+        });
+       // $('#cargosModal').modal();  
+      }
+
+
+   function cargarAreas(empresa){      
+        $.get('../back/controller/area_empresa/Area_empresaList.php',{'empresa':empresa},function(depa){
+          var mySelect=document.getElementById("Inputarea_empresa_idarea_emp");
+          removeAllChildren(mySelect);
+          mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);         
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idarea_emp,depa[i].nom_area));
+            }  
+          
+        });
+      }
+   function cargarAreas_all(){      
+        $.get('../back/controller/area_empresa/Area_empresaList_all.php',{'empresa':empresa},function(depa){
+          var mySelect=document.getElementById("Inputarea_empresa_idarea_emp");
+          removeAllChildren(mySelect);
+          mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);         
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idarea_emp,depa[i].nom_area));
+            }  
+          
+        });
+      }
+
+      function cargarCargos(Area){      
+        $.get('../back/controller/cargo_empreso/Cargo_empresoList.php',{'area':Area},function(depa){      
+          
+          var mySelect=document.getElementById("Inputcargo_empreso_idcargo");
+          removeAllChildren(mySelect);
+         mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idcargo,depa[i].nom_cargo));
+            }  
+          
+        }); 
+      }
+      
+         function setCargos(idcargo){
+        ciudad = $('select[id=Inputcargo_empreso_idcargo] option:selected').text();
+        console.log(ciudad);
+        $('#'+miInputcargo_id).val(ciudad);
+        
+      }
+
+    </script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.demo1').click(function(){
+            swal({
+                title: "Welcome in Alerts",
+                text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            });
+        });
+
+        $('.demo2').click(function(){
+            swal({
+                title: "Good job!",
+                text: "You clicked the button!",
+                type: "success"
+            });
+        });
+
+        $('.demo3').click(function () {
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this imaginary file!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false
+            }, function () {
+                swal("Deleted!", "Your imaginary file has been deleted.", "success");
+            });
+        });
+
+        $('.demo4').click(function () {
+            swal({
+                        title: "Are you sure?",
+                        text: "Your will not be able to recover this imaginary file!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, delete it!",
+                        cancelButtonText: "No, cancel plx!",
+                        closeOnConfirm: false,
+                        closeOnCancel: false },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        } else {
+                            swal("Cancelled", "Your imaginary file is safe :)", "error");
+                        }
+                    });
+        });
+
+
+    });
+
+</script>
+
+ <script>
+            var mimodal = null;
+            function mostrarActualizar(id, nombre) {
+                var a=''+id;
+                var b=''+nombre;
+                   $("#idArea").val(a);
+                $("#InputArea").val(b);
+              
+               $('#myModal5').addClass(' data-backdrop="static" data-keyboard="false"');
+               $('#myModal5').modal({show: true});
+               
+             
+            }
+            function mostrarEliminar(id2, nombre2) {
+               // console.log(id);
+                      var a1=''+id2;
+                var b2=''+nombre2;
+               
+                   $("#idArea2").val(a1);
+                $("#InputArea2").val(b2);
+               $('#myModalE').modal({show: true});
+
+             
+               //  alert('elim'+id,nombre);
+            }
+            function mostrarTodo(idp) {
+              
+               
+                  //    var a1=''+id2;
+               // var b2=''+nombre2;
+               
+                 getDatos('PersonaInsert','persona',idp);
+              
+               $('#myModalE').modal({show: true});
+
+             
+               //  alert('elim'+id,nombre);
+            }
+        </script>       
+

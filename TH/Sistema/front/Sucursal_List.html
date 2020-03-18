@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+    <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+                <!-- Sweet Alert -->
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    
+
+<!DOCTYPE html>
+
+<!--              -------Creado por-------               -->
+<!--             \(°u° )/ Anarchy \( °u°)/               -->
+<!--              ------------------------               -->
+
+<!--//    ¡Oh! (°o° ) ¡es Fredy Arciniegas, el intelectualoide millonario!  \\                  -->
+
+    <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+
+  <div class="panel panel-default">
+                  <div align=center class="panel-heading">
+                      <h1><b>Listar Sucursales</b></h1></div>
+                  <div align=center class="panel-body">
+                 <!--     <div class="text-left m-t-md"> -->
+                          <div class="ibox-content">
+                            
+                         <div class="row">
+                             <div class="col-lg-12">
+                               
+                              
+                                
+<div class="form-group">
+                <label for="InputidEmpresa_p">Sucursales </label>
+              
+                <select name="idEmpresa_p" class="form-control" id="InputidEmpresa_p" onchange="ListarEmpresas(this.value);">
+                                
+                </select> 
+     <br>
+ </div>
+                              
+                                 <div id="mostrarcontenido2">
+                                     
+                                 </div>          
+                                 
+                                 
+
+
+                             
+                                <div class="hr-line-dashed"></div>
+                             
+                                  
+                               
+                         
+                             </div>
+                             </div>
+                        
+                      
+                            
+                        </div>
+                    <!--       </div>  --->  
+                    </div>
+                </div>
+    
+    
+    <!---------------------------------Inicio Modal de Registrar       ----------------------------------->
+
+    
+  <div class="modal inmodal" id="myModal_R" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div   style="color: black ; text-shadow: 1px 2px #999;" class="modal-dialog">
+            <div class="modal-content animated flipInY">
+                <form role="form" id="EmpresaInsert">
+
+                    <div class="modal-header"> <!---------inicia Header---->
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">Registrar Sucursal</h4>
+                    </div> <!---------Fin Header  ---->
+
+                    <div class="modal-body"> <!---------inicia Body---->
+                        <div style="display: none" class="form-group">
+                          <label for="Inputidempresa">idempresa</label>
+                          <input type="text" name="Empresa_p_idEmpresa_p_r" class="form-control" id="InputEmpresa_p_idEmpresa_p_r" placeholder="idempresa" >
+                       </div>
+                        <div class="row">
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+
+
+                                    <select id="departamentos_r"  class="form-control"  onchange="cargarCiudades_r(this.value);">
+
+                                    </select>
+                                </div>  
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <select id="ciudades_r2"  class="form-control"  onchange="cargarContenido_r();">
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Inputnombre_empresa">Ciudad</label>
+                            <input type="text" name="nombre_ciudad_r" class="form-control" id="Inputnombre_ciudad_r" placeholder="Localizacion" onclick="cargarDepartamentos('Inputnombre_empresa_r');" readonly="readonly">
+                        </div>
+                        <div class="form-group">
+                            <label for="Inputnit_empresa">Telefono</label>
+                            <input type="text" name="nit_empresa_r" class="form-control" id="Inputnit_empresa_r" placeholder="Telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="Inputdireccion_empresa">direccion</label>
+                            <input type="text" name="direccion_empresa_r" class="form-control" id="Inputdireccion_empresa_r" placeholder="direccion empresa">
+                        </div>
+
+               
+
+
+                    </div> <!---------Fin Body---->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+
+                        <button type="button" class="btn btn-primary" onclick="registrar_r_Suc()">Salvar Cambios</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+<!---------------------------------Fin    Modal de Registrar       ----------------------------------->
+
+
+
+     
+
+           <script>
+               
+            //   GLOBAL_EMPREA;
+               
+                                    $(document).ready(function () { //no tocar //
+           $.get('../back/controller/empresa_p/Empresa_pList.php',function(depa){
+          var mySelect=document.getElementById("InputidEmpresa_p");
+         removeAllChildren(mySelect);
+             mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].idEmpresa_p,depa[i].Empresa_p_nombre));
+            }  
+          
+        });
+        
+       
+      
+                                    });
+        </script>
+        
+        
+    <script src="js/funciones.js"></script>
+        <script>
+                 function ListarEmpresas(empresa){
+                   
+                     
+                   sucursal_emp_Listar_2(empresa);
+               //  preArea_empresaList('mostrarcontenido2',empresa) // no me cargo exportar
+                     
+                 }  
+    
+   
+    
+        </script>
+  
+
+ <script src="js/plugins/dataTables/datatables.min.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap4.min.js"></script>
+  <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+
+<!-- That´s all folks! -->
+
+   <script>
+ // var mySelect;
+ valorEmpresa
+             function myModal_rs() {
+   
+            $('#myModal_R').modal({show: true});
+      
+      cargarDepartamentos_r();
+      valorEmpresa=document.getElementById("InputidEmpresa_p").value;
+    //  $('#Inputidempresa_R').val(valorEmpresa);
+     document.getElementById("InputEmpresa_p_idEmpresa_p_r").value=valorEmpresa;
+                   console.log(valorEmpresa);
+             
+             
+         //       ciudad = $('select[id=InputidEmpresa_p] option:selected').text();
+    //    $('#Inputidempresa').val(ciudad);
+            }
+
+</script>
+
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function(){
+            $('.dataTables-example').DataTable({
+                pageLength: 25,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
+
+            });
+
+        });
+
+    </script>
+   <script>
+   //  var  miInput;
+             function cargarDepartamentos_r(){
+         
+        
+         //  miInput = 'Inputnombre_empresa';
+        $.get('../../../generales/back/controller/departamento/DepartamentoList.php',function(depa){
+          var mySelect=document.getElementById("departamentos_r");
+          removeAllChildren(mySelect);
+          mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].iddepartamento,depa[i].departamento_descripcion));
+            }  
+        });
+
+        };
+        
+          function cargarCiudades_r(departamento){
+        $.get('../../../generales/back/controller/ciudad/CiudadList.php',{'depa':departamento},function(depa){
+          var mySelect=document.getElementById("ciudades_r2");
+          removeAllChildren(mySelect);
+          mySelect.appendChild(createOPTION(-1,'SELECCIONE'));
+          depa = JSON.parse(depa);
+         for (var i = 1 ; i < depa.length; i++) {
+              mySelect.appendChild(createOPTION(depa[i].ciudad_descripcion,depa[i].ciudad_descripcion));
+            }  
+          
+        });
+      }
+
+        function cargarContenido_r(){
+        ciudad = $('select[id=ciudades_r2] option:selected').text();
+        $('#Inputnombre_ciudad_r').val(ciudad);
+      }
+   </script>
+   
+      <script>
+  var mySelect;
+  
+ function registrar_r_Suc(){
+       
+    
+  
+        var url = "../back/controller/empresa/EmpresaInsert.php";
+        $.ajax({                        
+           type: "POST",                 
+           url: url,                     
+           data: $("#EmpresaInsert").serialize(), 
+          
+         
+           success: function(data) 
+         
+           {
+               if(data=='true'){
+                   aceptar_r_Suc();
+               }
+                          
+           }
+       });
+   
+};
+
+     function aceptar_r_Suc(){
+      $('#myModal_R').modal('hide');
+     //   $('#myModal_R').modal({show: true});
+       swal({
+                        title: "Registro",
+                        text: "Registro Exitoso!",
+                        type: "success",
+                       // showCancelButton: true,
+                        confirmButtonColor: "#1ab394",
+                        confirmButtonText: "Ok",
+                       // cancelButtonText: "No, cancel plx!",
+                      //   closeOnConfirm: false,
+                        closeOnCancel: false },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                               sucursal_emp_Listar_2(mySelect);
+                           // swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        } 
+                        else {
+                            swal("Cancelled", "Your imaginary file is safe :)", "error");
+                        }
+                    });
+   
+};
+</script>
+
+    <!-- That´s all folks! -->
+</html>

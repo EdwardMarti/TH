@@ -47,7 +47,8 @@ class Conexion implements IConexion{
              $password = $ini_array[$dbName]['password'];*/
              $host = 'localhost:3306';
              $username = 'sistema';
-             $password = 'AsHXsBqDc9C0cUbq';
+            /** $password = 'AsHXsBqDc9C0cUbq';*/
+            $password = 'Soporte';
              $this->cnx = new PDO("mysql:host=$host;dbname=datos_generales;charset=utf8",$username,$password);
          }catch(Exception $e){
             die('Error : '.$e->getMessage());
